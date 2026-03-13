@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Studies | Dr. Nader Youssef</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'base': '#F7F6F2', 'base-alt': '#F2F0EB', 'deep-teal': '#1F3E5A', 'teal-hover': '#163149',
+            'accent-sand': '#E5E2DA', 'sand-light': '#F0ECE4', 'accent-sage': '#7E9C8C', 'sage-light': '#9EB4A5',
+            'warm-sand': '#FFFFFF', 'text-primary': '#2A2A2A', 'text-secondary': '#515151', 'text-muted': '#7A7A7A', 'divider': '#E5E0D8'
+          },
+          fontFamily: { 'display': ['Playfair Display', 'Georgia', 'serif'], 'body': ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="h-full bg-base font-body text-text-primary overflow-auto smooth-scroll">
+  <div class="w-full min-h-full">
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-base/95 backdrop-blur-sm transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <a href="index.html" class="flex items-center gap-3 group">
+            <div class="w-10 h-10 bg-deep-teal rounded-lg flex items-center justify-center transition-transform group-hover:scale-105"><span class="text-white font-display font-bold text-lg">NY</span></div>
+            <div class="hidden sm:block"><span class="font-display text-xl font-semibold text-deep-teal">Dr. Nader Youssef</span></div>
+          </a>
+          <nav class="hidden lg:flex items-center gap-8">
+            <a href="index.html" class="text-sm font-medium text-text-secondary hover:text-deep-teal transition-colors">Home</a>
+            <a href="services.html" class="text-sm font-medium text-text-secondary hover:text-deep-teal transition-colors">Services</a>
+            <a href="case-studies.html" class="text-sm font-medium text-deep-teal border-b-2 border-deep-teal pb-0.5">Case Studies</a>
+            <a href="resources.html" class="text-sm font-medium text-text-secondary hover:text-deep-teal transition-colors">Resources</a>
+            <a href="about.html" class="text-sm font-medium text-text-secondary hover:text-deep-teal transition-colors">About</a>
+            <a href="contact.html" class="text-sm font-medium text-text-secondary hover:text-deep-teal transition-colors">Contact</a>
+          </nav>
+          <div class="flex items-center gap-3">
+            <a href="contact.html" class="hidden md:inline-flex text-sm font-medium text-deep-teal hover:text-teal-hover transition-colors">Request Consultation</a>
+            <a href="index.html#video-section" class="inline-flex items-center gap-2 px-5 py-2.5 bg-deep-teal text-white text-sm font-medium rounded-full hover:bg-teal-hover transition-all hover:shadow-lg">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/></svg>
+              See Dr. Youssef in Action
+            </a>
+            <button id="mobile-menu-btn" class="lg:hidden p-2 text-deep-teal" aria-label="Open menu">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="mobile-menu" class="hidden lg:hidden border-t border-divider bg-base">
+        <div class="px-6 py-4 space-y-3">
+          <a href="index.html" class="block text-sm font-medium text-text-secondary">Home</a>
+          <a href="services.html" class="block text-sm font-medium text-text-secondary">Services</a>
+          <a href="case-studies.html" class="block text-sm font-medium text-deep-teal">Case Studies</a>
+          <a href="resources.html" class="block text-sm font-medium text-text-secondary">Resources</a>
+          <a href="about.html" class="block text-sm font-medium text-text-secondary">About</a>
+          <a href="contact.html" class="block text-sm font-medium text-text-secondary">Contact</a>
+          <div class="pt-3 border-t border-divider"><a href="contact.html" class="block text-sm font-medium text-deep-teal">Request Consultation</a></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="pt-32 pb-20 lg:pt-40 lg:pb-28">
+      <div class="absolute inset-0 pattern-overlay opacity-30"></div>
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-deep-teal/5 rounded-full text-sm font-medium text-deep-teal mb-6">
+            <span class="w-1.5 h-1.5 bg-deep-teal rounded-full"></span> Thought Leadership
+          </span>
+          <h1 class="font-display text-3xl lg:text-4xl font-semibold text-text-primary mb-4">Case Studies &amp; White Papers</h1>
+          <p class="text-lg text-text-secondary">Evidence-based insights and real-world outcomes from patient engagement, pharma collaboration, and provider training.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <article class="group bg-white rounded-2xl overflow-hidden border border-divider hover:shadow-lg transition-all h-full flex flex-col">
+            <div class="h-40 bg-gradient-to-br from-deep-teal/10 to-deep-teal/5 flex items-center justify-center">
+              <svg class="w-16 h-16 text-deep-teal/20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <span class="px-2 py-1 bg-deep-teal/5 text-deep-teal text-xs font-medium rounded-full mb-4 inline-block w-fit">Patient Advocacy</span>
+              <h2 class="font-display text-xl font-semibold text-text-primary mb-3">The New Patient Bill of Rights</h2>
+              <p class="text-text-secondary text-sm mb-6 flex-grow">Essential principles for reclaiming agency and voice in healthcare encounters.</p>
+              <a href="#" class="inline-flex items-center gap-2 text-deep-teal font-medium text-sm group-hover:text-teal-hover transition-colors">Read <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          <article class="group bg-white rounded-2xl overflow-hidden border border-divider hover:shadow-lg transition-all h-full flex flex-col">
+            <div class="h-40 bg-gradient-to-br from-deep-teal/10 to-deep-teal/5 flex items-center justify-center">
+              <svg class="w-16 h-16 text-deep-teal/20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <span class="px-2 py-1 bg-deep-teal/5 text-deep-teal text-xs font-medium rounded-full mb-4 inline-block w-fit">Pharma</span>
+              <h2 class="font-display text-xl font-semibold text-text-primary mb-3">Study Recruitment That Resonates</h2>
+              <p class="text-text-secondary text-sm mb-6 flex-grow">How reframing patient communication increased enrollment and retention in clinical research.</p>
+              <a href="#" class="inline-flex items-center gap-2 text-deep-teal font-medium text-sm group-hover:text-teal-hover transition-colors">Read <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          <article class="group bg-white rounded-2xl overflow-hidden border border-divider hover:shadow-lg transition-all h-full flex flex-col">
+            <div class="h-40 bg-gradient-to-br from-deep-teal/10 to-deep-teal/5 flex items-center justify-center">
+              <svg class="w-16 h-16 text-deep-teal/20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <span class="px-2 py-1 bg-deep-teal/5 text-deep-teal text-xs font-medium rounded-full mb-4 inline-block w-fit">Provider Training</span>
+              <h2 class="font-display text-xl font-semibold text-text-primary mb-3">Empathetic Engagement in Practice</h2>
+              <p class="text-text-secondary text-sm mb-6 flex-grow">Measurable shifts in patient satisfaction and communication outcomes after workshop implementation.</p>
+              <a href="#" class="inline-flex items-center gap-2 text-deep-teal font-medium text-sm group-hover:text-teal-hover transition-colors">Read <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-deep-teal text-white relative overflow-hidden">
+      <div class="absolute inset-0 pattern-overlay opacity-10"></div>
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
+        <div class="grid md:grid-cols-4 gap-12 mb-12">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center"><span class="font-display font-bold text-lg">NY</span></div>
+              <span class="font-display text-lg font-semibold">Dr. Nader Youssef</span>
+            </div>
+            <p class="text-white/70 text-sm leading-relaxed">Healthcare consultant, patient advocate, and champion of empathetic engagement.</p>
+          </div>
+          <div>
+            <h4 class="font-semibold text-sm uppercase tracking-widest mb-4 text-white/90">Explore</h4>
+            <ul class="space-y-2 text-sm">
+              <li><a href="index.html" class="text-white/70 hover:text-white transition-colors">Home</a></li>
+              <li><a href="services.html" class="text-white/70 hover:text-white transition-colors">Services</a></li>
+              <li><a href="case-studies.html" class="text-white/70 hover:text-white transition-colors">Case Studies</a></li>
+              <li><a href="resources.html" class="text-white/70 hover:text-white transition-colors">Resources</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-sm uppercase tracking-widest mb-4 text-white/90">About</h4>
+            <ul class="space-y-2 text-sm">
+              <li><a href="about.html" class="text-white/70 hover:text-white transition-colors">Biography</a></li>
+              <li><a href="about.html#speaking" class="text-white/70 hover:text-white transition-colors">Speaking</a></li>
+              <li><a href="resources.html" class="text-white/70 hover:text-white transition-colors">Media</a></li>
+              <li><a href="contact.html" class="text-white/70 hover:text-white transition-colors">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-sm uppercase tracking-widest mb-4 text-white/90">Connect</h4>
+            <p class="text-white/70 text-sm mb-4">hello@naderyoussef.com</p>
+            <div class="flex items-center gap-4">
+              <a href="#" class="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors" aria-label="Facebook">...</a>
+              <a href="#" class="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors" aria-label="Twitter">...</a>
+              <a href="#" class="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors" aria-label="LinkedIn">...</a>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-white/10 pt-8 text-center text-sm text-white/60">
+          <p>© 2024 Dr. Nader Youssef. All rights reserved. | <a href="#" class="hover:text-white transition-colors">Privacy Policy</a> | <a href="#" class="hover:text-white transition-colors">Terms of Service</a></p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="./assets/js/main.js" defer></script>
+</body>
+</html>
