@@ -166,14 +166,6 @@ if (serviceFinder) {
         };
       }
 
-      // Optional: adjust contact subject line
-      if (consultLink) {
-        const baseHref = "mailto:hello@naderyoussef.com";
-        const subject = encodeURIComponent(
-          `Consultation request – ${copy.title}`
-        );
-        consultLink.href = `${baseHref}?subject=${subject}`;
-      }
     });
   });
 
