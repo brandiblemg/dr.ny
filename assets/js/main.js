@@ -254,3 +254,22 @@ if (aceDiagram) {
   activateSegment(initialKey);
 }
 
+// Hero video play button (index.html)
+const heroVideo = document.getElementById("hero-video");
+const heroPlayBtn = document.querySelector(".video-play-btn");
+
+if (heroVideo && heroPlayBtn) {
+  heroPlayBtn.addEventListener("click", () => {
+    if (heroVideo.paused) {
+      heroVideo.play();
+      heroPlayBtn.classList.add("opacity-0", "pointer-events-none");
+    } else {
+      heroVideo.pause();
+    }
+  });
+
+  heroVideo.addEventListener("ended", () => {
+    heroPlayBtn.classList.remove("opacity-0", "pointer-events-none");
+  });
+}
+
