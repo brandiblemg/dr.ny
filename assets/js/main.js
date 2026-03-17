@@ -67,6 +67,7 @@ if (serviceFinder) {
   const resultBody = document.getElementById("sfr-body");
   const viewDetailsBtn = document.getElementById("sfr-view-details");
   const consultLink = document.getElementById("sfr-consult");
+  const toolkitGroups = serviceFinder.querySelectorAll(".sfr-toolkit-group");
 
   const serviceCopy = {
     patient: {
@@ -137,6 +138,18 @@ if (serviceFinder) {
         resultTitle.textContent = copy.title;
         resultBody.textContent = copy.body;
         result.classList.remove("hidden");
+      }
+
+      // Show matching toolkit group
+      if (toolkitGroups && toolkitGroups.length) {
+        toolkitGroups.forEach((group) => {
+          const key = group.getAttribute("data-service");
+          if (key === serviceKey) {
+            group.classList.remove("hidden");
+          } else {
+            group.classList.add("hidden");
+          }
+        });
       }
 
       // Scroll to cards when "View details below" is clicked
