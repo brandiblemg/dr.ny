@@ -24,17 +24,25 @@ if (mobileMenuBtn && mobileMenu) {
   });
 }
 
-// Smooth scroll
+// Smooth scroll for in-page anchors only (must not block links whose href was later set to another page)
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+    if (this.classList.contains("service-start")) {
+      return;
     }
+    const href = this.getAttribute("href") || "";
+    if (!href.startsWith("#") || href.length < 2) {
+      return;
+    }
+    const target = document.querySelector(href);
+    if (!target) {
+      return;
+    }
+    e.preventDefault();
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   });
 });
 
@@ -54,20 +62,69 @@ document.querySelectorAll(".path-card, .ace-pillar").forEach((el) => {
   observer.observe(el);
 });
 
-// Interactive Service Finder (services.html)
+// Interactive Service Finder (homepage “Find Your Path”; service pages keep their own path finders)
 const serviceFinder = document.getElementById("service-finder");
 
+/** Homepage journey → service page panel + labels for resume banner */
+const HOME_JOURNEY_GOAL_MAP = {
+  "patient-1": {
+    base: "patient-advocacy.html",
+    panel: "pa-1",
+    goalLabel: "Prepare for a visit (3 questions, accompaniment)"
+  },
+  "patient-2": {
+    base: "patient-advocacy.html",
+    panel: "pa-2",
+    goalLabel: "Feel heard, informed, and empowered"
+  },
+  "patient-3": {
+    base: "patient-advocacy.html",
+    panel: "pa-3",
+    goalLabel: "Address fears and knowledge gaps before my visit"
+  },
+  "pharma-1": {
+    base: "healthcare-consultation.html",
+    panel: "hc-1",
+    goalLabel: "Shape study design with patient-centered outcomes"
+  },
+  "pharma-2": {
+    base: "healthcare-consultation.html",
+    panel: "hc-2",
+    goalLabel: "Improve recruitment with real patient voice"
+  },
+  "provider-1": {
+    base: "education.html",
+    panel: "ed-1",
+    goalLabel: "Train team in empathetic, patient-centered communication"
+  },
+  "provider-2": {
+    base: "education.html",
+    panel: "ed-2",
+    goalLabel: "Address communication gaps (e.g. explain the \"why\")"
+  }
+};
+
+const HOME_ROLE_LABELS = {
+  patient: "I'm a Patient",
+  pharma: "I represent Pharma",
+  provider: "I'm a Healthcare Provider"
+};
+
 if (serviceFinder) {
+  const isHomeJourneyFinder = serviceFinder.classList.contains("home-journey-finder");
   const roleButtons = serviceFinder.querySelectorAll(".sf-role-btn");
   const step2 = document.getElementById("service-finder-step2");
+  const step3 = document.getElementById("service-finder-step3");
   const goalGroups = serviceFinder.querySelectorAll(".sf-goals-group");
   const goalButtons = serviceFinder.querySelectorAll(".sf-goal-btn");
+  const narrowGroups = serviceFinder.querySelectorAll(".sf-narrow-group");
+  const narrowButtons = serviceFinder.querySelectorAll(".sf-narrow-btn");
   const result = document.getElementById("service-finder-result");
   const resultTitle = document.getElementById("sfr-title");
   const resultBody = document.getElementById("sfr-body");
   const viewDetailsBtn = document.getElementById("sfr-view-details");
-  const consultLink = document.getElementById("sfr-consult");
-  const toolkitGroups = serviceFinder.querySelectorAll(".sfr-toolkit-group");
+  const toolkitsWrap = document.getElementById("sfr-toolkits");
+  const toolkitGroups = toolkitsWrap ? toolkitsWrap.querySelectorAll(".sfr-toolkit-group") : [];
 
   const serviceCopy = {
     patient: {
@@ -87,19 +144,68 @@ if (serviceFinder) {
     }
   };
 
-  let selectedRole = null;
   let targetCardId = null;
 
-  function setRole(role) {
-    selectedRole = role;
+  function hideStep3AndResult() {
+    if (step3) step3.classList.add("hidden");
+    if (result) result.classList.add("hidden");
+    if (toolkitsWrap) toolkitsWrap.classList.add("hidden");
+    toolkitGroups.forEach((g) => g.classList.add("hidden"));
+    narrowGroups.forEach((g) => g.classList.add("hidden"));
+    goalButtons.forEach((b) => b.setAttribute("data-picked", "false"));
+    const homeNext = document.getElementById("home-journey-next");
+    if (homeNext) homeNext.classList.add("hidden");
+  }
 
-    // Visual active state for role buttons
+  function showToolkitsForKey(toolkitKey) {
+    if (!toolkitsWrap || !toolkitKey) {
+      if (toolkitsWrap) toolkitsWrap.classList.add("hidden");
+      return;
+    }
+    let matched = false;
+    toolkitGroups.forEach((group) => {
+      const key = group.getAttribute("data-toolkit-key");
+      const show = key === toolkitKey;
+      group.classList.toggle("hidden", !show);
+      if (show) matched = true;
+    });
+    toolkitsWrap.classList.toggle("hidden", !matched);
+  }
+
+  function showResult(serviceKey, refineLine, toolkitKey) {
+    if (!serviceKey || !serviceCopy[serviceKey]) return;
+
+    const copy = serviceCopy[serviceKey];
+    const bodyText = refineLine ? `${copy.body} ${refineLine}` : copy.body;
+
+    if (result && resultTitle && resultBody) {
+      resultTitle.textContent = copy.title;
+      resultBody.textContent = bodyText;
+      result.classList.remove("hidden");
+    }
+
+    showToolkitsForKey(toolkitKey);
+
+    if (viewDetailsBtn) {
+      viewDetailsBtn.onclick = () => {
+        if (!targetCardId) return;
+        const card = document.getElementById(targetCardId);
+        if (card) {
+          card.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }
+      };
+    }
+  }
+
+  function setRole(role) {
     roleButtons.forEach((b) => {
       const bRole = b.getAttribute("data-role");
       b.setAttribute("data-active", bRole === role ? "true" : "false");
     });
 
-    // Show step 2 and the matching goal group
     if (step2) {
       step2.classList.remove("hidden");
     }
@@ -112,10 +218,7 @@ if (serviceFinder) {
       }
     });
 
-    // Reset result when role changes
-    if (result) {
-      result.classList.add("hidden");
-    }
+    hideStep3AndResult();
   }
 
   roleButtons.forEach((btn) => {
@@ -127,49 +230,55 @@ if (serviceFinder) {
 
   goalButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
-      const serviceKey = btn.getAttribute("data-service");
-      targetCardId = btn.getAttribute("data-target-card");
+      const goalId = btn.getAttribute("data-goal-id");
+      const visibleGroup = Array.from(goalGroups).find((g) => !g.classList.contains("hidden"));
+      if (visibleGroup) {
+        visibleGroup.querySelectorAll(".sf-goal-btn").forEach((b) => b.setAttribute("data-picked", "false"));
+      }
+      btn.setAttribute("data-picked", "true");
 
-      if (!serviceKey || !serviceCopy[serviceKey]) return;
+      if (result) result.classList.add("hidden");
 
-      const copy = serviceCopy[serviceKey];
-
-      if (result && resultTitle && resultBody) {
-        resultTitle.textContent = copy.title;
-        resultBody.textContent = copy.body;
-        result.classList.remove("hidden");
+      if (isHomeJourneyFinder && goalId) {
+        const mapped = HOME_JOURNEY_GOAL_MAP[goalId];
+        const serviceKey = btn.getAttribute("data-service");
+        const homeNext = document.getElementById("home-journey-next");
+        const continueA = document.getElementById("home-continue-journey");
+        const learnA = document.getElementById("home-learn-more");
+        if (mapped && serviceKey && homeNext && continueA && learnA) {
+          const roleQ = encodeURIComponent(serviceKey);
+          const hgQ = encodeURIComponent(goalId);
+          const panelQ = encodeURIComponent(mapped.panel);
+          continueA.href = `${mapped.base}?continue=${panelQ}&role=${roleQ}&hg=${hgQ}#journey-step-3`;
+          learnA.href = mapped.base;
+          homeNext.classList.remove("hidden");
+          homeNext.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+        return;
       }
 
-      // Show matching toolkit group
-      if (toolkitGroups && toolkitGroups.length) {
-        toolkitGroups.forEach((group) => {
-          const key = group.getAttribute("data-service");
-          if (key === serviceKey) {
-            group.classList.remove("hidden");
-          } else {
-            group.classList.add("hidden");
-          }
+      if (step3 && goalId) {
+        step3.classList.remove("hidden");
+        narrowGroups.forEach((group) => {
+          const match = group.getAttribute("data-for-goal") === goalId;
+          group.classList.toggle("hidden", !match);
         });
+        step3.scrollIntoView({ behavior: "smooth", block: "nearest" });
       }
-
-      // Scroll to cards when "View details below" is clicked
-      if (viewDetailsBtn) {
-        viewDetailsBtn.onclick = () => {
-          if (!targetCardId) return;
-          const card = document.getElementById(targetCardId);
-          if (card) {
-            card.scrollIntoView({
-              behavior: "smooth",
-              block: "start"
-            });
-          }
-        };
-      }
-
     });
   });
 
-  // Allow "Get started" buttons on service cards to complete Step 1
+  narrowButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const serviceKey = btn.getAttribute("data-service");
+      targetCardId = btn.getAttribute("data-target-card");
+      const refineLine = btn.getAttribute("data-refine") || "";
+      const toolkitKey = btn.getAttribute("data-toolkit-key") || "";
+      showResult(serviceKey, refineLine, toolkitKey);
+      if (result) result.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+  });
+
   const serviceStartLinks = document.querySelectorAll(".service-start");
   serviceStartLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
@@ -181,6 +290,122 @@ if (serviceFinder) {
     });
   });
 }
+
+// Standalone “Find Your Path” on service pages (goal → narrow → anchor cards + toolkits)
+document.querySelectorAll(".service-path-finder").forEach((root) => {
+  const step2 = root.querySelector(".spf-step2");
+  const toolkitsRoot = root.querySelector(".spf-toolkits");
+  if (!step2) return;
+
+  const panels = step2.querySelectorAll(".spf-narrow-panel");
+  const toolkitGroups = toolkitsRoot ? toolkitsRoot.querySelectorAll(".spf-toolkit-group") : [];
+
+  function hideServicePageToolkits() {
+    if (toolkitsRoot) toolkitsRoot.classList.add("hidden");
+    toolkitGroups.forEach((g) => g.classList.add("hidden"));
+  }
+
+  function showServicePageToolkits(toolkitKey) {
+    if (!toolkitsRoot || !toolkitKey) {
+      hideServicePageToolkits();
+      return;
+    }
+    let matched = false;
+    toolkitGroups.forEach((group) => {
+      const key = group.getAttribute("data-toolkit-key");
+      const show = key === toolkitKey;
+      group.classList.toggle("hidden", !show);
+      if (show) matched = true;
+    });
+    toolkitsRoot.classList.toggle("hidden", !matched);
+  }
+
+  root.querySelectorAll(".spf-goal-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const key = btn.getAttribute("data-open-panel");
+      root.querySelectorAll(".spf-goal-btn").forEach((b) => b.setAttribute("data-picked", "false"));
+      btn.setAttribute("data-picked", "true");
+      hideServicePageToolkits();
+      step2.classList.remove("hidden");
+      panels.forEach((p) => {
+        p.classList.toggle("hidden", p.getAttribute("data-panel") !== key);
+      });
+      const skipScroll = window.__spfResumeSkipStepScroll === true;
+      window.__spfResumeSkipStepScroll = false;
+      if (!skipScroll) {
+        step2.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    });
+  });
+
+  root.querySelectorAll(".spf-narrow-panel a[data-toolkit-key]").forEach((link) => {
+    link.addEventListener("click", () => {
+      const toolkitKey = link.getAttribute("data-toolkit-key") || "";
+      showServicePageToolkits(toolkitKey);
+    });
+  });
+});
+
+// Resume homepage journey: Steps 1–2 shown as complete; open Step 3 (narrow focus) and scroll there
+(function resumeFindYourPathFromHome() {
+  const params = new URLSearchParams(window.location.search);
+  const panel = params.get("continue");
+  const roleKey = params.get("role");
+  const hg = params.get("hg");
+  const hash = (window.location.hash || "").replace(/^#/, "");
+  if (!panel) return;
+  if (!/^(pa|hc|ed)-[123]$/.test(panel)) return;
+  if (hash !== "journey-step-3" && hash !== "find-your-path") return;
+
+  const root = document.getElementById("find-your-path");
+  if (!root) return;
+
+  const btn = root.querySelector(`.spf-goal-btn[data-open-panel="${panel}"]`);
+  if (!btn) return;
+
+  const mapped = hg ? HOME_JOURNEY_GOAL_MAP[hg] : null;
+  if (hg && (!mapped || mapped.panel !== panel)) return;
+  if (roleKey && !HOME_ROLE_LABELS[roleKey]) return;
+
+  const step3El = document.getElementById("journey-step-3");
+  const narrowLabel = document.getElementById("spf-narrow-step-label");
+  const banner = document.getElementById("journey-home-banner");
+  const bannerRole = document.getElementById("journey-banner-role");
+  const bannerGoal = document.getElementById("journey-banner-goal");
+  const step1 = root.querySelector(".spf-step1");
+
+  if (hg && roleKey && banner && bannerRole && bannerGoal && mapped) {
+    bannerRole.textContent = HOME_ROLE_LABELS[roleKey] || roleKey;
+    bannerGoal.textContent = mapped.goalLabel || "";
+    banner.classList.remove("hidden");
+  }
+
+  window.__spfResumeSkipStepScroll = true;
+  btn.click();
+
+  if (narrowLabel) {
+    narrowLabel.textContent = "Step 3 · Narrow your focus...";
+  }
+
+  if (step1) {
+    step1.classList.add("ring-2", "ring-deep-teal/15", "rounded-2xl", "p-4", "-mx-1", "mb-8", "bg-deep-teal/[0.03]");
+    const step1Caption = step1.querySelector(".spf-step1-caption");
+    if (!step1Caption) {
+      const cap = document.createElement("p");
+      cap.className =
+        "spf-step1-caption text-xs text-deep-teal font-medium mb-3 -mt-1";
+      cap.textContent = "Completed from your homepage — your goal is locked in below.";
+      step1.insertBefore(cap, step1.children[1] || null);
+    }
+  }
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const scrollTarget = step3El || root;
+      scrollTarget.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+})();
 
 // ACE Framework interactive diagram (ace-framework.html)
 const aceDiagram = document.getElementById("ace-diagram");

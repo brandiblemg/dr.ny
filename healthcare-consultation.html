@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healthcare Consultation | Dr. Nader Youssef</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'base': '#F7F6F2', 'base-alt': '#F2F0EB', 'deep-teal': '#1F3E5A', 'teal-hover': '#163149',
+            'accent-sand': '#E5E2DA', 'sand-light': '#F0ECE4', 'accent-sage': '#7E9C8C', 'sage-light': '#9EB4A5',
+            'warm-sand': '#FFFFFF', 'text-primary': '#2A2A2A', 'text-secondary': '#515151', 'text-muted': '#7A7A7A', 'divider': '#E5E0D8'
+          },
+          fontFamily: { 'display': ['Playfair Display', 'Georgia', 'serif'], 'body': ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="h-full bg-base font-body text-text-primary overflow-auto smooth-scroll">
+  <div class="w-full min-h-full">
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-base/95 backdrop-blur-sm transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <a href="index.html" class="flex items-center gap-3 group">
+            <div class="w-10 h-10 bg-deep-teal rounded-lg flex items-center justify-center transition-transform group-hover:scale-105"><span class="text-white font-display font-bold text-lg">NY</span></div>
+            <div class="hidden sm:block"><span class="font-display text-2xl font-semibold text-deep-teal">Dr. Nader Youssef</span></div>
+          </a>
+          <nav class="hidden lg:flex items-center gap-8">
+            <a href="healthcare-consultation.html" class="text-sm font-medium text-deep-teal border-b-2 border-deep-teal pb-0.5">Healthcare Consultation</a>
+            <a href="patient-advocacy.html" class="text-sm font-medium text-text-secondary hover:text-deep-teal transition-colors">Patient Advocacy</a>
+            <a href="education.html" class="text-sm font-medium text-text-secondary hover:text-deep-teal transition-colors">Education</a>
+            <a href="case-studies.html" class="text-sm font-medium text-text-secondary hover:text-deep-teal transition-colors">Case Studies</a>
+            <a href="schedule.html" class="text-sm font-medium text-text-secondary hover:text-deep-teal transition-colors">Schedule Time</a>
+          </nav>
+          <div class="flex items-center gap-3">
+            <a href="about.html" class="inline-flex items-center gap-2 px-5 py-2.5 bg-deep-teal text-white text-sm font-medium rounded-full hover:bg-teal-hover transition-all hover:shadow-lg">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/></svg>
+              Meet Dr. Youssef
+            </a>
+            <button id="mobile-menu-btn" class="lg:hidden p-2 text-deep-teal" aria-label="Open menu">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="mobile-menu" class="hidden lg:hidden border-t border-divider bg-base">
+        <div class="px-6 py-4 space-y-3">
+          <a href="healthcare-consultation.html" class="block text-sm font-medium text-deep-teal">Healthcare Consultation</a>
+          <a href="patient-advocacy.html" class="block text-sm font-medium text-text-secondary">Patient Advocacy</a>
+          <a href="education.html" class="block text-sm font-medium text-text-secondary">Education</a>
+          <a href="case-studies.html" class="block text-sm font-medium text-text-secondary">Case Studies</a>
+          <a href="schedule.html" class="block text-sm font-medium text-text-secondary">Schedule Time</a>
+          <div class="pt-3 border-t border-divider"><a href="schedule.html" class="block text-sm font-medium text-deep-teal">Schedule Time</a></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="pt-32 pb-20 lg:pt-40 lg:pb-28">
+      <div class="absolute inset-0 pattern-overlay opacity-30"></div>
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto mb-12 text-center">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-deep-teal/5 rounded-full text-sm font-medium text-deep-teal mb-6">
+            <span class="w-1.5 h-1.5 bg-deep-teal rounded-full"></span> Service Path
+          </span>
+          <h1 class="font-display text-3xl lg:text-5xl font-semibold text-text-primary mb-4">Healthcare Consultation</h1>
+          <p class="text-lg text-text-secondary">Patient-centered consulting for study design, engagement strategy, and meaningful outcomes.</p>
+        </div>
+
+        <section class="grid lg:grid-cols-[1.25fr_1fr] gap-8 items-start mb-12">
+          <article class="bg-white rounded-2xl border border-divider shadow-sm p-6 md:p-8">
+            <h2 class="font-display text-2xl font-semibold text-text-primary mb-3">Overview</h2>
+            <p class="text-text-secondary leading-relaxed mb-6">Built from the ACE framework, this path helps pharma and biopharma teams translate patient voice into practical strategy. We bring real-world perspective into protocol design, recruitment language, and educational narratives so research is both rigorous and human-centered.</p>
+            <h3 class="font-semibold text-text-primary mb-2">What this path includes</h3>
+            <ul class="space-y-2 text-sm text-text-secondary mb-6">
+              <li>• Study design support with patient-centered outcomes and burden awareness</li>
+              <li>• Advisory engagement with patient groups and key opinion leaders</li>
+              <li>• Message and recruitment strategy grounded in lived patient priorities</li>
+            </ul>
+            <h3 class="font-semibold text-text-primary mb-2">Who this serves</h3>
+            <p class="text-sm text-text-secondary mb-0">Pharma and biopharma leaders, medical affairs teams, clinical development groups, and cross-functional partners building patient-first programs.</p>
+            <div class="mt-8 pt-8 border-t border-divider">
+              <div class="border-l-4 border-deep-teal/20 pl-4 md:pl-6 py-1">
+                <div class="w-12 h-12 bg-deep-teal/10 rounded-xl flex items-center justify-center mb-6">
+                  <svg class="w-6 h-6 text-deep-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                </div>
+                <h3 class="font-display text-xl font-semibold text-text-primary mb-2">Pharmaceutical Consulting</h3>
+                <p class="text-sm text-text-muted mb-4">Study design with patient-centered outcomes</p>
+                <p class="text-text-secondary mb-4 leading-relaxed">We understand unmet needs through patient groups and key opinion leaders to shape meaningful study design. Example: Pediatric Brain Tumor Society collaboration—advocating for daily function measurements (e.g., child’s ability to self-feed), compassionate study protocols, and educating pharma partners on real patient priorities.</p>
+                <ul class="space-y-3 text-sm text-text-secondary">
+                  <li class="flex items-start gap-3"><span class="text-deep-teal mt-0.5">✓</span> Patient advisory boards and KOL engagement</li>
+                  <li class="flex items-start gap-3"><span class="text-deep-teal mt-0.5">✓</span> Authentic recruitment narratives</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <aside class="bg-white rounded-2xl border border-divider shadow-sm p-6 md:p-7">
+            <p class="text-xs uppercase tracking-widest text-text-muted mb-2 font-medium">Service Overview Video</p>
+            <h3 class="font-display text-xl font-semibold text-text-primary mb-3">Watch a quick overview</h3>
+            <p class="text-sm text-text-secondary mb-4">Placeholder for a short service-specific video introduction.</p>
+            <div class="relative aspect-video bg-gradient-to-br from-deep-teal to-deep-teal/80 rounded-2xl overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-t from-deep-teal/90 via-deep-teal/20 to-transparent"></div>
+              <div class="absolute inset-0 opacity-10">
+                <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="service-video-grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5" /></pattern></defs><rect width="100%" height="100%" fill="url(#service-video-grid)" /></svg>
+              </div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <button class="video-play-btn w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-xl" aria-label="Play service overview">
+                  <svg class="w-6 h-6 text-deep-teal ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" /></svg>
+                </button>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <section id="find-your-path" class="service-path-finder scroll-mt-28 bg-white rounded-2xl border border-divider shadow-sm p-6 md:p-8">
+          <h2 class="font-display text-2xl font-semibold text-text-primary mb-3">Find Your Path</h2>
+          <p class="text-text-secondary mb-5">Choose your primary goal, narrow your focus, then open the starting point that fits best.</p>
+          <div id="journey-home-banner" class="hidden mb-6 rounded-xl border border-deep-teal/20 bg-deep-teal/5 px-4 py-3 text-sm">
+            <p class="font-medium text-text-primary mb-1">Continuing from the homepage</p>
+            <p class="text-text-secondary"><span class="text-deep-teal font-medium">Step 1:</span> <span id="journey-banner-role"></span></p>
+            <p class="text-text-secondary mt-1"><span class="text-deep-teal font-medium">Step 2:</span> <span id="journey-banner-goal"></span></p>
+            <p class="text-xs text-text-muted mt-2">Step 3 is below—pick the option that fits best so we can suggest toolkits and next steps.</p>
+          </div>
+          <div class="spf-step1 mb-6">
+            <p class="text-xs font-medium text-text-muted uppercase tracking-widest mb-3">Step 1 · My primary goal is...</p>
+            <div class="flex flex-wrap gap-3">
+              <button type="button" class="spf-goal-btn inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors data-[picked=true]:border-deep-teal data-[picked=true]:bg-deep-teal/5" data-open-panel="hc-1">Shape study design with patient-centered outcomes</button>
+              <button type="button" class="spf-goal-btn inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors data-[picked=true]:border-deep-teal data-[picked=true]:bg-deep-teal/5" data-open-panel="hc-2">Improve recruitment with authentic patient voice</button>
+              <button type="button" class="spf-goal-btn inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors data-[picked=true]:border-deep-teal data-[picked=true]:bg-deep-teal/5" data-open-panel="hc-3">Align teams on real-world burden and value</button>
+            </div>
+          </div>
+          <div id="journey-step-3" class="spf-step2 hidden mb-6 scroll-mt-28">
+            <p id="spf-narrow-step-label" class="text-xs font-medium text-text-muted uppercase tracking-widest mb-3">Step 2 · Narrow your focus...</p>
+            <div class="spf-narrow-panel hidden flex flex-wrap gap-3 mb-6" data-panel="hc-1">
+              <a href="#path-1" data-toolkit-key="hctk-1a" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors">Endpoints, PROs, and meaningful outcomes</a>
+              <a href="#path-2" data-toolkit-key="hctk-1b" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors">Protocol burden and visit feasibility</a>
+              <a href="#path-3" data-toolkit-key="hctk-1c" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors">Cross-functional alignment on patient priorities</a>
+            </div>
+            <div class="spf-narrow-panel hidden flex flex-wrap gap-3 mb-6" data-panel="hc-2">
+              <a href="#path-2" data-toolkit-key="hctk-2a" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors">Patient-facing language and creatives</a>
+              <a href="#path-1" data-toolkit-key="hctk-2b" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors">Site tools and visit expectations</a>
+              <a href="#path-3" data-toolkit-key="hctk-2c" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors">Advocacy and community partnerships</a>
+            </div>
+            <div class="spf-narrow-panel hidden flex flex-wrap gap-3 mb-6" data-panel="hc-3">
+              <a href="#path-3" data-toolkit-key="hctk-3a" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors">Medical, commercial, and access teams</a>
+              <a href="#path-1" data-toolkit-key="hctk-3b" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors">Leadership brief on patient burden</a>
+              <a href="#path-2" data-toolkit-key="hctk-3c" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors">Shared narrative for external stakeholders</a>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-3 gap-4">
+                <article id="path-1" class="rounded-xl border border-divider bg-white p-5">
+                  <h3 class="font-display text-xl font-semibold text-text-primary mb-2">Protocol Strategy Start</h3>
+                  <p class="text-sm text-text-secondary mb-3">Define high-impact patient-centered endpoints and practical protocol adjustments for stronger relevance.</p>
+                  <a href="schedule.html" class="inline-flex items-center gap-2 text-deep-teal font-medium text-sm hover:text-teal-hover transition-colors">Chat With Us <span aria-hidden="true">→</span></a>
+                </article>
+                <article id="path-2" class="rounded-xl border border-divider bg-white p-5">
+                  <h3 class="font-display text-xl font-semibold text-text-primary mb-2">Recruitment Messaging Reset</h3>
+                  <p class="text-sm text-text-secondary mb-3">Reframe outreach and trial communications using language patients trust and understand.</p>
+                  <a href="schedule.html" class="inline-flex items-center gap-2 text-deep-teal font-medium text-sm hover:text-teal-hover transition-colors">Chat With Us <span aria-hidden="true">→</span></a>
+                </article>
+                <article id="path-3" class="rounded-xl border border-divider bg-white p-5">
+                  <h3 class="font-display text-xl font-semibold text-text-primary mb-2">Cross-Functional Alignment</h3>
+                  <p class="text-sm text-text-secondary mb-3">Create a shared patient-priority framework for medical, commercial, and market access teams.</p>
+                  <a href="schedule.html" class="inline-flex items-center gap-2 text-deep-teal font-medium text-sm hover:text-teal-hover transition-colors">Chat With Us <span aria-hidden="true">→</span></a>
+                </article>
+          </div>
+          <div class="spf-toolkits mt-8 rounded-xl border border-divider bg-deep-teal/3 p-5 md:p-6 hidden" aria-live="polite">
+            <p class="text-xs uppercase tracking-widest text-text-muted mb-2 font-medium">Suggested toolkits for your path (placeholders)</p>
+            <div class="space-y-2">
+              <div class="spf-toolkit-group hidden" data-toolkit-key="hctk-1a">
+                <a href="#" class="block text-sm text-deep-teal font-medium hover:text-teal-hover transition-colors">Endpoint &amp; PRO workshop outline (placeholder)</a>
+                <a href="#" class="block text-sm text-deep-teal font-medium hover:text-teal-hover transition-colors">Patient-meaningful outcome examples (placeholder)</a>
+              </div>
+              <div class="spf-toolkit-group hidden" data-toolkit-key="hctk-1b">
+                <a href="#" class="block text-sm text-deep-teal font-medium hover:text-teal-hover transition-colors">Visit schedule friction checklist (placeholder)</a>
+                <a href="#" class="block text-sm text-deep-teal font-medium hover:text-teal-hover transition-colors">Burden–benefit summary template (placeholder)</a>
+              </div>
+              <div class="spf-toolkit-group hidden" data-toolkit-key="hctk-1c">
+                <a href="#" class="block text-sm text-deep-teal font-medium hover:text-teal-hover transition-colors">Stakeholder alignment one-pager (placeholder)</a>
+                <a href="#" class="block text-sm text-deep-teal font-medium hover:text-teal-hover transition-colors">Prioritization exercise (placeholder)</a>
+              </div>
+              <div class="spf-toolkit-group hidden" data-toolkit-key="hctk-2a">
+                <a href="#" class="block text-sm text-deep-teal font-medium hover:text-teal-hover transition-colors">Trial messaging tone guide (placeholder)</a>
+                <a href="#" class="block text-sm text-deep-teal font-medium hover:text-teal-hover transition-colors">Screening call script starters (placeholder)</a>
+              </div>
+              <div class="spf-toolkit-group hidden" data-toolkit-key="hctk-2b">
+                <a href="#" class="block text-sm text-deep-teal font-medium hover:text-teal-hover transition-colors">Site participant expectation FAQ (placeholder)</a>
+                <a href="#" class="block text-sm text-deep-teal font-medium hover:text-teal-hover transition-colors">Visit logistics simplifier (placeholder)</a>
+              </div>
+              <div class="spf-toolkit-group hidden" data-toolkit-key="hctk-2c">
+                <a href="#" class="block text-sm text-deep-teal font-medium hover:text-teal-hover transition-colors">Advocacy partner briefing (placeholder)</a>
+                <a href="#" class="block text-sm text-deep-teal font-medium hover:text-teal-hover transition-colors">Community recruitment toolkit (placeholder)</a>
+              </div>
+              <div class="spf-toolkit-group hidden" data-toolkit-key="hctk-3a">
+                <a href="#" class="block text-sm text-deep-teal font-medium hover:text-teal-hover transition-colors">MA–medical–commercial sync agenda (placeholder)</a>
+                <a href="#" class="block text-sm text-deep-teal font-medium hover:text-teal-hover transition-colors">Role clarity worksheet (placeholder)</a>
+              </div>
+              <div class="spf-toolkit-group hidden" data-toolkit-key="hctk-3b">
+                <a href="#" class="block text-sm text-deep-teal font-medium hover:text-teal-hover transition-colors">Executive summary: patient burden (placeholder)</a>
+                <a href="#" class="block text-sm text-deep-teal font-medium hover:text-teal-hover transition-colors">Leadership talking points (placeholder)</a>
+              </div>
+              <div class="spf-toolkit-group hidden" data-toolkit-key="hctk-3c">
+                <a href="#" class="block text-sm text-deep-teal font-medium hover:text-teal-hover transition-colors">External narrative playbook (placeholder)</a>
+                <a href="#" class="block text-sm text-deep-teal font-medium hover:text-teal-hover transition-colors">Investor / public framing sheet (placeholder)</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="bg-deep-teal text-white relative overflow-hidden">
+      <div class="absolute inset-0 pattern-overlay opacity-10"></div>
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
+        <div class="grid md:grid-cols-4 gap-12 mb-12">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center"><span class="font-display font-bold text-lg">NY</span></div>
+              <span class="font-display text-lg font-semibold">Dr. Nader Youssef</span>
+            </div>
+            <p class="text-white/70 text-sm leading-relaxed">Healthcare consultant, patient advocate, and champion of empathetic engagement.</p>
+          </div>
+          <div>
+            <h4 class="font-semibold text-sm uppercase tracking-widest mb-4 text-white/90">Explore</h4>
+            <ul class="space-y-2 text-sm">
+              <li><a href="index.html" class="text-white/70 hover:text-white transition-colors">Home</a></li>
+              <li><a href="ace-framework.html" class="text-white/70 hover:text-white transition-colors">How We Work</a></li>
+              <li><a href="case-studies.html" class="text-white/70 hover:text-white transition-colors">Case Studies</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-sm uppercase tracking-widest mb-4 text-white/90">Team</h4>
+            <ul class="space-y-2 text-sm">
+              <li><a href="about.html" class="text-white/70 hover:text-white transition-colors">Team</a></li>
+              <li><a href="about.html#speaking" class="text-white/70 hover:text-white transition-colors">Speaking</a></li>
+              <li><a href="resources.html" class="text-white/70 hover:text-white transition-colors">Media</a></li>
+              <li><a href="schedule.html" class="text-white/70 hover:text-white transition-colors">Schedule Time</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-sm uppercase tracking-widest mb-4 text-white/90">Connect</h4>
+            <p class="text-white/70 text-sm mb-4">hello@naderyoussef.com</p>
+          </div>
+        </div>
+        <div class="border-t border-white/10 pt-8 text-center text-sm text-white/60">
+          <p>© 2024 Dr. Nader Youssef. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="./assets/js/main.js" defer></script>
+</body>
+</html>
