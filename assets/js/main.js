@@ -341,6 +341,12 @@ document.querySelectorAll(".service-path-finder").forEach((root) => {
   root.querySelectorAll(".spf-narrow-panel a[data-toolkit-key]").forEach((link) => {
     link.addEventListener("click", () => {
       const toolkitKey = link.getAttribute("data-toolkit-key") || "";
+      // Persist selection styling for “Narrow your focus...” pills
+      const panel = link.closest(".spf-narrow-panel");
+      if (panel) {
+        panel.querySelectorAll("a[data-toolkit-key]").forEach((a) => a.setAttribute("data-picked", "false"));
+      }
+      link.setAttribute("data-picked", "true");
       showServicePageToolkits(toolkitKey);
     });
   });

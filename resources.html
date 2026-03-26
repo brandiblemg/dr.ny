@@ -3,6 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="assets/Logo/1.png">
+  <link rel="apple-touch-icon" href="assets/Logo/1.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dr. Youssef | Where Listening Becomes Medicine">
+  <meta property="og:description" content="Pharmaceutical and biotech consultation, patient partnership and advocacy, and mentoring for healthcare leaders.">
+  <meta property="og:image" content="assets/Logo/1.png">
+  <meta property="og:url" content="index.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dr. Youssef | Where Listening Becomes Medicine">
+  <meta name="twitter:description" content="Pharmaceutical and biotech consultation, patient partnership and advocacy, and mentoring for healthcare leaders.">
+  <meta name="twitter:image" content="assets/Logo/1.png">
   <title>Resources | Dr. Nader Youssef</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,45 +37,42 @@
 </head>
 <body class="h-full bg-base font-body text-text-primary overflow-auto smooth-scroll">
   <div class="w-full min-h-full">
-    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-base/95 backdrop-blur-sm transition-all duration-300">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="flex items-center justify-between h-20">
-          <a href="index.html" class="flex items-center gap-3 group">
-            <div class="w-10 h-10 bg-deep-teal rounded-lg flex items-center justify-center transition-transform group-hover:scale-105"><span class="text-white font-display font-bold text-lg">NY</span></div>
-            <div class="hidden sm:block"><span class="font-display text-2xl font-semibold text-deep-teal">Dr. Nader Youssef</span></div>
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-deep-teal/95 backdrop-blur-sm transition-all duration-300">
+      <div class="w-full px-2 lg:px-3">
+        <div class="flex items-center justify-center h-[5.5rem] relative">
+          <a href="index.html" class="flex items-center gap-3 group absolute left-0">
+            <div class="w-20 h-20 overflow-hidden flex items-center justify-center transition-transform group-hover:scale-105"><img src="assets/Logo/1.png" alt="Dr. Youssef logo" class="w-full h-full object-cover" /></div>
+            <div class="hidden sm:block"><span class="font-display text-2xl font-semibold text-white">Dr. Youssef</span></div>
           </a>
-          <nav class="hidden lg:flex items-center gap-8">
-            <a href="healthcare-consultation.html" class="text-sm font-medium text-text-secondary hover:text-deep-teal transition-colors">Healthcare Consultation</a>
-            <a href="patient-advocacy.html" class="text-sm font-medium text-text-secondary hover:text-deep-teal transition-colors">Patient Advocacy</a>
-            <a href="education.html" class="text-sm font-medium text-text-secondary hover:text-deep-teal transition-colors">Education</a>
-            <a href="case-studies.html" class="text-sm font-medium text-text-secondary hover:text-deep-teal transition-colors">Case Studies</a>
-            <a href="schedule.html" class="text-sm font-medium text-text-secondary hover:text-deep-teal transition-colors">Schedule Time</a>
+          <nav class="hidden lg:flex items-center gap-8 mx-auto lg:translate-x-10">
+            <a href="healthcare-consultation.html" class="text-sm font-medium text-white/85 hover:text-white transition-colors">Pharmaceutical &amp; Biotech Consultation</a>
+            <a href="patient-advocacy.html" class="text-sm font-medium text-white/85 hover:text-white transition-colors">Patient Partnership &amp; Advocacy</a>
+            <a href="education.html" class="text-sm font-medium text-white/85 hover:text-white transition-colors">Mentoring &amp; Leadership Coaching</a>
+            <a href="case-studies.html" class="text-sm font-medium text-white/85 hover:text-white transition-colors">Case Studies</a>
+            <a href="schedule.html" class="text-sm font-medium text-white/85 hover:text-white transition-colors">Schedule Time</a>
           </nav>
-          <div class="flex items-center gap-3">
+          <div class="absolute right-0 flex items-center gap-2">
             <a href="schedule.html" class="hidden md:inline-flex text-sm font-medium text-deep-teal hover:text-teal-hover transition-colors">Schedule Time</a>
-            <a href="about.html" class="inline-flex items-center gap-2 px-5 py-2.5 bg-deep-teal text-white text-sm font-medium rounded-full hover:bg-teal-hover transition-all hover:shadow-lg">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/></svg>
-              Meet Dr. Youssef
-            </a>
-            <button id="mobile-menu-btn" class="lg:hidden p-2 text-deep-teal" aria-label="Open menu">
+            <a href="about.html" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/30 text-white text-sm font-medium rounded-full hover:bg-white/20 transition-all hover:shadow-lg">Meet Dr. Youssef</a>
+            <button id="mobile-menu-btn" class="lg:hidden p-2 text-white" aria-label="Open menu">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>
           </div>
         </div>
       </div>
-      <div id="mobile-menu" class="hidden lg:hidden border-t border-divider bg-base">
+      <div id="mobile-menu" class="hidden lg:hidden border-t border-white/20 bg-deep-teal">
         <div class="px-6 py-4 space-y-3">
-          <a href="healthcare-consultation.html" class="block text-sm font-medium text-text-secondary">Healthcare Consultation</a>
-          <a href="patient-advocacy.html" class="block text-sm font-medium text-text-secondary">Patient Advocacy</a>
-          <a href="education.html" class="block text-sm font-medium text-text-secondary">Education</a>
-          <a href="case-studies.html" class="block text-sm font-medium text-text-secondary">Case Studies</a>
-          <a href="schedule.html" class="block text-sm font-medium text-text-secondary">Schedule Time</a>
-          <div class="pt-3 border-t border-divider"><a href="schedule.html" class="block text-sm font-medium text-deep-teal">Schedule Time</a></div>
+          <a href="healthcare-consultation.html" class="block text-sm font-medium text-white/85 hover:text-white transition-colors">Pharmaceutical &amp; Biotech Consultation</a>
+          <a href="patient-advocacy.html" class="block text-sm font-medium text-white/85 hover:text-white transition-colors">Patient Partnership &amp; Advocacy</a>
+          <a href="education.html" class="block text-sm font-medium text-white/85 hover:text-white transition-colors">Mentoring &amp; Leadership Coaching</a>
+          <a href="case-studies.html" class="block text-sm font-medium text-white/85 hover:text-white transition-colors">Case Studies</a>
+          <a href="schedule.html" class="block text-sm font-medium text-white/85 hover:text-white transition-colors">Schedule Time</a>
+          <div class="pt-3 border-t border-divider"><a href="schedule.html" class="block text-sm font-medium text-white">Schedule Time</a></div>
         </div>
       </div>
     </header>
 
-    <main class="pt-32 pb-20 lg:pt-40 lg:pb-28">
+    <main class="pt-28 pb-14 lg:pt-32 lg:pb-20">
       <div class="absolute inset-0 pattern-overlay opacity-30"></div>
       <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16">
@@ -115,7 +123,7 @@
 
     <footer class="bg-deep-teal text-white relative overflow-hidden">
       <div class="absolute inset-0 pattern-overlay opacity-10"></div>
-      <div class="relative max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
         <div class="grid md:grid-cols-4 gap-12 mb-12">
           <div>
             <div class="flex items-center gap-3 mb-4">
