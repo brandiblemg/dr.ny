@@ -7,6 +7,7 @@
 const header = document.getElementById("main-header");
 
 window.addEventListener("scroll", () => {
+  if (!header) return;
   if (window.pageYOffset > 50) {
     header.classList.add("header-scrolled");
   } else {
@@ -14,15 +15,51 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// Mobile menu toggle
+// Mobile menu toggle (classic navbar pattern)
 const mobileMenuBtn = document.getElementById("mobile-menu-btn");
-const mobileMenu = document.getElementById("mobile-menu");
+const mobileMenu = document.getElementById("primary-navigation");
 
 if (mobileMenuBtn && mobileMenu) {
   mobileMenuBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
+    const open = mobileMenu.classList.toggle("navbar__menu--open");
+    mobileMenuBtn.classList.toggle("is-active", open);
+    mobileMenuBtn.setAttribute("aria-expanded", open ? "true" : "false");
   });
 }
+
+// “See More” desktop dropdown (all pages with .nav-more-wrap)
+(function initNavMoreDropdown() {
+  const wrap = document.querySelector(".nav-more-wrap");
+  if (!wrap) return;
+  const btn = wrap.querySelector(".nav-more-btn");
+  const panel = wrap.querySelector(".nav-more-panel");
+  if (!btn || !panel) return;
+
+  const setOpen = (open) => {
+    if (open) {
+      panel.classList.remove("hidden");
+      wrap.classList.add("nav-more-open");
+      btn.setAttribute("aria-expanded", "true");
+    } else {
+      panel.classList.add("hidden");
+      wrap.classList.remove("nav-more-open");
+      btn.setAttribute("aria-expanded", "false");
+    }
+  };
+
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    setOpen(btn.getAttribute("aria-expanded") !== "true");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!wrap.contains(e.target)) setOpen(false);
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setOpen(false);
+  });
+})();
 
 // Smooth scroll for in-page anchors only (must not block links whose href was later set to another page)
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -58,11 +95,11 @@ const observer = new IntersectionObserver(
   { threshold: 0.1 }
 );
 
-document.querySelectorAll(".path-card, .ace-pillar").forEach((el) => {
+document.querySelectorAll(".journey-card, .ace-pillar").forEach((el) => {
   observer.observe(el);
 });
 
-// Interactive Service Finder (homepage “Find Your Path”; service pages keep their own path finders)
+// Interactive Service Finder (homepage “Find Your Journey”; service pages keep their own journey finders)
 const serviceFinder = document.getElementById("service-finder");
 
 /** Homepage journey → service page panel + labels for resume banner */
@@ -291,8 +328,8 @@ if (serviceFinder) {
   });
 }
 
-// Standalone “Find Your Path” on service pages (goal → narrow → anchor cards + toolkits)
-document.querySelectorAll(".service-path-finder").forEach((root) => {
+// Standalone “Find Your Journey” on service pages (goal → narrow → anchor cards + toolkits)
+document.querySelectorAll(".service-journey-finder").forEach((root) => {
   const step2 = root.querySelector(".spf-step2");
   const toolkitsRoot = root.querySelector(".spf-toolkits");
   if (!step2) return;
@@ -353,7 +390,7 @@ document.querySelectorAll(".service-path-finder").forEach((root) => {
 });
 
 // Resume homepage journey: Steps 1–2 shown as complete; open Step 3 (narrow focus) and scroll there
-(function resumeFindYourPathFromHome() {
+(function resumeFindYourJourneyFromHome() {
   const params = new URLSearchParams(window.location.search);
   const panel = params.get("continue");
   const roleKey = params.get("role");
@@ -361,9 +398,9 @@ document.querySelectorAll(".service-path-finder").forEach((root) => {
   const hash = (window.location.hash || "").replace(/^#/, "");
   if (!panel) return;
   if (!/^(pa|hc|ed)-[123]$/.test(panel)) return;
-  if (hash !== "journey-step-3" && hash !== "find-your-path") return;
+  if (hash !== "journey-step-3" && hash !== "find-your-journey" && hash !== "find-your-path") return;
 
-  const root = document.getElementById("find-your-path");
+  const root = document.getElementById("find-your-journey");
   if (!root) return;
 
   const btn = root.querySelector(`.spf-goal-btn[data-open-panel="${panel}"]`);
@@ -495,12 +532,24 @@ const heroVideo = document.getElementById("hero-video");
 const heroPlayBtn = document.querySelector(".video-play-btn");
 
 if (heroVideo && heroPlayBtn) {
-  heroPlayBtn.addEventListener("click", () => {
+  heroPlayBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
     if (heroVideo.paused) {
       heroVideo.play();
       heroPlayBtn.classList.add("opacity-0", "pointer-events-none");
     } else {
       heroVideo.pause();
+      heroPlayBtn.classList.remove("opacity-0", "pointer-events-none");
+    }
+  });
+
+  heroVideo.addEventListener("click", () => {
+    if (heroVideo.paused) {
+      heroVideo.play();
+      heroPlayBtn.classList.add("opacity-0", "pointer-events-none");
+    } else {
+      heroVideo.pause();
+      heroPlayBtn.classList.remove("opacity-0", "pointer-events-none");
     }
   });
 

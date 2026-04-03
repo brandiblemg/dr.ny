@@ -51,45 +51,49 @@
 <body class="h-full bg-base font-body text-text-primary overflow-auto smooth-scroll">
   <div class="w-full min-h-full">
     <!-- Header -->
-    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-deep-teal/95 backdrop-blur-sm transition-all duration-300">
-      <div class="w-full px-2 lg:px-3">
-        <div class="flex items-center justify-center h-[5.5rem] relative">
-          <a href="index.html" class="flex items-center gap-3 group absolute left-0">
-            <div class="w-[3.75rem] h-[3.75rem] overflow-hidden flex items-center justify-center transition-transform group-hover:scale-105">
-              <img src="assets/Logo/1.png" alt="Dr. Youssef logo" class="w-full h-full object-cover" />
-            </div>
-            <div class="hidden sm:block">
-              <span class="font-display text-xl font-semibold text-white">Dr. Youssef</span>
-            </div>
-          </a>
-          <nav class="hidden lg:flex items-center gap-8 mx-auto lg:translate-x-10">
-            <a href="healthcare-consultation.html" class="text-sm font-medium text-white/85 hover:text-white transition-colors">Pharmaceutical &amp; Biotech Consultation</a>
-            <a href="patient-advocacy.html" class="text-sm font-medium text-white/85 hover:text-white transition-colors">Patient Partnership &amp; Advocacy</a>
-            <a href="education.html" class="text-sm font-medium text-white/85 hover:text-white transition-colors">Mentoring &amp; Leadership Coaching</a>
-            <a href="case-studies.html" class="text-sm font-medium text-white/85 hover:text-white transition-colors">Case Studies</a>
-            <a href="schedule.html" class="text-sm font-medium text-white/85 hover:text-white transition-colors">Schedule Time</a>
-          </nav>
-          <div class="absolute right-0 flex items-center gap-2">
-            <a href="about.html" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/30 text-white text-sm font-medium rounded-full hover:bg-white/20 transition-all hover:shadow-lg">Meet Dr. Youssef</a>
-            <button id="mobile-menu-btn" class="lg:hidden p-2 text-white" aria-label="Open menu">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="mobile-menu" class="hidden lg:hidden border-t border-white/20 bg-deep-teal">
-        <div class="px-6 py-4 space-y-3">
-          <a href="healthcare-consultation.html" class="block text-sm font-medium text-white/85 hover:text-white transition-colors">Pharmaceutical &amp; Biotech Consultation</a>
-          <a href="patient-advocacy.html" class="block text-sm font-medium text-white/85 hover:text-white transition-colors">Patient Partnership &amp; Advocacy</a>
-          <a href="education.html" class="block text-sm font-medium text-white/85 hover:text-white transition-colors">Mentoring &amp; Leadership Coaching</a>
-          <a href="case-studies.html" class="block text-sm font-medium text-white/85 hover:text-white transition-colors">Case Studies</a>
-          <a href="schedule.html" class="block text-sm font-medium text-white/85 hover:text-white transition-colors">Schedule Time</a>
-          <div class="pt-3 border-t border-divider">
-            <a href="schedule.html" class="block text-sm font-medium text-white">Schedule Time</a>
-          </div>
-        </div>
+    <header id="main-header" class="navbar">
+      <div class="navbar__container">
+        <a href="index.html" class="navbar__brand">
+          <span class="navbar__logo-wrap"><img src="assets/Logo/1.png" alt="Dr. Youssef logo" width="60" height="60" class="navbar__logo" /></span>
+          <span class="navbar__title">Dr. Youssef</span>
+        </a>
+        <button type="button" class="navbar__toggle" id="mobile-menu-btn" aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false">
+          <span class="navbar__toggle-bar" aria-hidden="true"></span>
+          <span class="navbar__toggle-bar" aria-hidden="true"></span>
+          <span class="navbar__toggle-bar" aria-hidden="true"></span>
+        </button>
+        <nav class="navbar__menu" id="primary-navigation" role="navigation" aria-label="Primary">
+          <ul class="navbar__list">
+            <li class="navbar__item">
+              <a href="healthcare-consultation.html" class="navbar__link navbar__link--multiline"><span class="navbar__line">Pharmaceutical &amp;</span><span class="navbar__line">Biotech Consultation</span></a>
+            </li>
+            <li class="navbar__item">
+              <a href="patient-advocacy.html" class="navbar__link navbar__link--multiline"><span class="navbar__line">Patient Partnership &amp;</span><span class="navbar__line">Advocacy</span></a>
+            </li>
+            <li class="navbar__item">
+              <a href="education.html" class="navbar__link navbar__link--multiline"><span class="navbar__line">Mentoring &amp;</span><span class="navbar__line">Leadership Coaching</span></a>
+            </li>
+            <li class="navbar__item">
+              <a href="ace-framework.html" class="navbar__link navbar__link--active" aria-current="page">ACE Framework</a>
+            </li>
+            <li class="navbar__item">
+              <a href="schedule.html" class="navbar__link navbar__link--cta">Schedule Consultation</a>
+            </li>
+            <li class="navbar__item navbar__item--dropdown nav-more-wrap">
+              <button type="button" class="navbar__link navbar__link--dropdown nav-more-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-more-menu">
+                See More
+                <svg class="nav-more-chevron w-4 h-4 shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div id="nav-more-menu" class="nav-more-panel navbar__dropdown-panel hidden absolute left-1/2 top-full z-[70] mt-2 w-[min(100vw-2rem,16rem)] -translate-x-1/2 rounded-xl border border-divider bg-white py-2 shadow-xl" role="menu" aria-label="More pages">
+                <a href="case-studies.html" class="block px-4 py-2.5 text-sm font-medium text-text-primary hover:bg-base-alt hover:text-deep-teal transition-colors" role="menuitem">Case Studies</a>
+                <a href="resources.html" class="block px-4 py-2.5 text-sm font-medium text-text-primary hover:bg-base-alt hover:text-deep-teal transition-colors" role="menuitem">Resources</a>
+                <a href="about.html" class="block px-4 py-2.5 text-sm font-medium text-text-primary hover:bg-base-alt hover:text-deep-teal transition-colors" role="menuitem">Meet Dr. Youssef</a>
+              </div>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
 
@@ -281,7 +285,7 @@
             <ul class="space-y-2 text-sm">
               <li><a href="index.html" class="text-white/70 hover:text-white transition-colors">Home</a></li>
               <li><a href="ace-framework.html" class="text-white/70 hover:text-white transition-colors">How We Work</a></li>
-              <li><a href="case-studies.html" class="text-white/70 hover:text-white transition-colors">Case Studies</a></li>
+              <li><a href="ace-framework.html" class="text-white/70 hover:text-white transition-colors">ACE Framework</a></li>
             </ul>
           </div>
           <div class="md:pl-8">

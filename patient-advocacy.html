@@ -37,37 +37,49 @@
 </head>
 <body class="h-full bg-base font-body text-text-primary overflow-auto smooth-scroll">
   <div class="w-full min-h-full">
-    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-deep-teal/95 backdrop-blur-sm transition-all duration-300">
-      <div class="w-full px-2 lg:px-3">
-        <div class="flex items-center justify-center h-[5.5rem] relative">
-          <a href="index.html" class="flex items-center gap-3 group absolute left-0">
-            <div class="w-[3.75rem] h-[3.75rem] overflow-hidden flex items-center justify-center transition-transform group-hover:scale-105"><img src="assets/Logo/1.png" alt="Dr. Youssef logo" class="w-full h-full object-cover" /></div>
-            <div class="hidden sm:block"><span class="font-display text-xl font-semibold text-white">Dr. Youssef</span></div>
-          </a>
-          <nav class="hidden lg:flex items-center gap-8 mx-auto lg:translate-x-10">
-            <a href="healthcare-consultation.html" class="text-sm font-medium text-white/85 hover:text-white transition-colors">Pharmaceutical &amp; Biotech Consultation</a>
-            <a href="patient-advocacy.html" class="text-sm font-medium text-white border-b-2 border-white pb-0.5">Patient Partnership &amp; Advocacy</a>
-            <a href="education.html" class="text-sm font-medium text-white/85 hover:text-white transition-colors">Mentoring &amp; Leadership Coaching</a>
-            <a href="case-studies.html" class="text-sm font-medium text-white/85 hover:text-white transition-colors">Case Studies</a>
-            <a href="schedule.html" class="text-sm font-medium text-white/85 hover:text-white transition-colors">Schedule Time</a>
-          </nav>
-          <div class="absolute right-0 flex items-center gap-2">
-            <a href="about.html" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/30 text-white text-sm font-medium rounded-full hover:bg-white/20 transition-all hover:shadow-lg">Meet Dr. Youssef</a>
-            <button id="mobile-menu-btn" class="lg:hidden p-2 text-white" aria-label="Open menu">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="mobile-menu" class="hidden lg:hidden border-t border-white/20 bg-deep-teal">
-        <div class="px-6 py-4 space-y-3">
-          <a href="healthcare-consultation.html" class="block text-sm font-medium text-white/85 hover:text-white transition-colors">Pharmaceutical &amp; Biotech Consultation</a>
-          <a href="patient-advocacy.html" class="block text-sm font-medium text-white">Patient Partnership &amp; Advocacy</a>
-          <a href="education.html" class="block text-sm font-medium text-white/85 hover:text-white transition-colors">Mentoring &amp; Leadership Coaching</a>
-          <a href="case-studies.html" class="block text-sm font-medium text-white/85 hover:text-white transition-colors">Case Studies</a>
-          <a href="schedule.html" class="block text-sm font-medium text-white/85 hover:text-white transition-colors">Schedule Time</a>
-          <div class="pt-3 border-t border-divider"><a href="schedule.html" class="block text-sm font-medium text-white">Schedule Time</a></div>
-        </div>
+    <header id="main-header" class="navbar">
+      <div class="navbar__container">
+        <a href="index.html" class="navbar__brand">
+          <span class="navbar__logo-wrap"><img src="assets/Logo/1.png" alt="Dr. Youssef logo" width="60" height="60" class="navbar__logo" /></span>
+          <span class="navbar__title">Dr. Youssef</span>
+        </a>
+        <button type="button" class="navbar__toggle" id="mobile-menu-btn" aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false">
+          <span class="navbar__toggle-bar" aria-hidden="true"></span>
+          <span class="navbar__toggle-bar" aria-hidden="true"></span>
+          <span class="navbar__toggle-bar" aria-hidden="true"></span>
+        </button>
+        <nav class="navbar__menu" id="primary-navigation" role="navigation" aria-label="Primary">
+          <ul class="navbar__list">
+            <li class="navbar__item">
+              <a href="healthcare-consultation.html" class="navbar__link navbar__link--multiline"><span class="navbar__line">Pharmaceutical &amp;</span><span class="navbar__line">Biotech Consultation</span></a>
+            </li>
+            <li class="navbar__item">
+              <a href="patient-advocacy.html" class="navbar__link navbar__link--multiline navbar__link--active" aria-current="page"><span class="navbar__line">Patient Partnership &amp;</span><span class="navbar__line">Advocacy</span></a>
+            </li>
+            <li class="navbar__item">
+              <a href="education.html" class="navbar__link navbar__link--multiline"><span class="navbar__line">Mentoring &amp;</span><span class="navbar__line">Leadership Coaching</span></a>
+            </li>
+            <li class="navbar__item">
+              <a href="ace-framework.html" class="navbar__link">ACE Framework</a>
+            </li>
+            <li class="navbar__item">
+              <a href="schedule.html" class="navbar__link navbar__link--cta">Schedule Consultation</a>
+            </li>
+            <li class="navbar__item navbar__item--dropdown nav-more-wrap">
+              <button type="button" class="navbar__link navbar__link--dropdown nav-more-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-more-menu">
+                See More
+                <svg class="nav-more-chevron w-4 h-4 shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div id="nav-more-menu" class="nav-more-panel navbar__dropdown-panel hidden absolute left-1/2 top-full z-[70] mt-2 w-[min(100vw-2rem,16rem)] -translate-x-1/2 rounded-xl border border-divider bg-white py-2 shadow-xl" role="menu" aria-label="More pages">
+                <a href="case-studies.html" class="block px-4 py-2.5 text-sm font-medium text-text-primary hover:bg-base-alt hover:text-deep-teal transition-colors" role="menuitem">Case Studies</a>
+                <a href="resources.html" class="block px-4 py-2.5 text-sm font-medium text-text-primary hover:bg-base-alt hover:text-deep-teal transition-colors" role="menuitem">Resources</a>
+                <a href="about.html" class="block px-4 py-2.5 text-sm font-medium text-text-primary hover:bg-base-alt hover:text-deep-teal transition-colors" role="menuitem">Meet Dr. Youssef</a>
+              </div>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
 
@@ -76,7 +88,7 @@
       <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div class="max-w-4xl mx-auto mb-12 text-center">
           <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-deep-teal/5 rounded-full text-sm font-medium text-deep-teal mb-6">
-            <span class="w-1.5 h-1.5 bg-deep-teal rounded-full"></span> Service Path
+            <span class="w-1.5 h-1.5 bg-deep-teal rounded-full"></span> Service Journey
           </span>
           <h1 class="font-display text-3xl lg:text-5xl font-semibold text-text-primary mb-4">Patient Partnership &amp; Advocacy</h1>
           <p class="text-lg text-text-secondary">Helping patients prepare, be heard, and move through care with confidence.</p>
@@ -85,8 +97,8 @@
         <section class="grid lg:grid-cols-[1.25fr_1fr] gap-8 items-start mb-12">
           <article class="bg-white rounded-2xl border border-divider shadow-sm p-6 md:p-8">
             <h2 class="font-display text-2xl font-semibold text-text-primary mb-3">Overview</h2>
-            <p class="text-text-secondary leading-relaxed mb-6">This path supports patients and families before, during, and after care encounters. We combine preparation, communication strategy, and post-visit clarity so people feel informed, represented, and able to act on next steps.</p>
-            <h3 class="font-semibold text-text-primary mb-2">What this path includes</h3>
+            <p class="text-text-secondary leading-relaxed mb-6">This journey supports patients and families before, during, and after care encounters. We combine preparation, communication strategy, and post-visit clarity so people feel informed, represented, and able to act on next steps.</p>
+            <h3 class="font-semibold text-text-primary mb-2">What this journey includes</h3>
             <ul class="space-y-2 text-sm text-text-secondary mb-6">
               <li>• Pre-visit preparation with concerns, goals, and key questions clarified</li>
               <li>• Structured support for communication during healthcare encounters</li>
@@ -129,8 +141,8 @@
           </aside>
         </section>
 
-        <section id="find-your-path" class="service-path-finder scroll-mt-28 bg-white rounded-2xl border border-divider shadow-sm p-6 md:p-8">
-          <h2 class="font-display text-2xl font-semibold text-text-primary mb-3">Find Your Path</h2>
+        <section id="find-your-journey" class="service-journey-finder scroll-mt-28 bg-white rounded-2xl border border-divider shadow-sm p-6 md:p-8">
+          <h2 class="font-display text-2xl font-semibold text-text-primary mb-3">Find Your Journey</h2>
           <p class="text-text-secondary mb-5">Choose your primary goal, narrow your focus, then open the starting point that fits best.</p>
           <div id="journey-home-banner" class="hidden mb-6 rounded-xl border border-deep-teal/20 bg-deep-teal/5 px-4 py-3 text-sm">
             <p class="font-medium text-text-primary mb-1">Continuing from the homepage</p>
@@ -149,40 +161,40 @@
           <div id="journey-step-3" class="spf-step2 hidden mb-6 scroll-mt-28">
             <p id="spf-narrow-step-label" class="text-xs font-medium text-text-muted uppercase tracking-widest mb-3">Step 2 · Narrow your focus...</p>
             <div class="spf-narrow-panel hidden flex flex-wrap gap-3 mb-6" data-panel="pa-1">
-              <a href="#path-1" data-toolkit-key="patk-1a" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors">First visit or new diagnosis</a>
-              <a href="#path-1" data-toolkit-key="patk-1b" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors">Follow-up with new symptoms or results</a>
-              <a href="#path-2" data-toolkit-key="patk-1c" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors">Need an advocate in a complex system</a>
+              <a href="#journey-1" data-toolkit-key="patk-1a" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors">First visit or new diagnosis</a>
+              <a href="#journey-1" data-toolkit-key="patk-1b" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors">Follow-up with new symptoms or results</a>
+              <a href="#journey-2" data-toolkit-key="patk-1c" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors">Need an advocate in a complex system</a>
             </div>
             <div class="spf-narrow-panel hidden flex flex-wrap gap-3 mb-6" data-panel="pa-2">
-              <a href="#path-2" data-toolkit-key="patk-2a" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors">Second opinions and care pathways</a>
-              <a href="#path-2" data-toolkit-key="patk-2b" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors">Building confidence in hard conversations</a>
-              <a href="#path-1" data-toolkit-key="patk-2c" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors">Visit prep when you feel rushed or dismissed</a>
+              <a href="#journey-2" data-toolkit-key="patk-2a" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors">Second opinions and care journeys</a>
+              <a href="#journey-2" data-toolkit-key="patk-2b" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors">Building confidence in hard conversations</a>
+              <a href="#journey-1" data-toolkit-key="patk-2c" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors">Visit prep when you feel rushed or dismissed</a>
             </div>
             <div class="spf-narrow-panel hidden flex flex-wrap gap-3 mb-6" data-panel="pa-3">
-              <a href="#path-3" data-toolkit-key="patk-3a" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors">Translate recommendations into daily routines</a>
-              <a href="#path-3" data-toolkit-key="patk-3b" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors">Medication questions after the visit</a>
-              <a href="#path-1" data-toolkit-key="patk-3c" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors">Written summary you can share with family</a>
+              <a href="#journey-3" data-toolkit-key="patk-3a" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors">Translate recommendations into daily routines</a>
+              <a href="#journey-3" data-toolkit-key="patk-3b" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors">Medication questions after the visit</a>
+              <a href="#journey-1" data-toolkit-key="patk-3c" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors">Written summary you can share with family</a>
             </div>
           </div>
           <div class="grid md:grid-cols-3 gap-4">
-                <article id="path-1" class="rounded-xl border border-divider bg-white p-5">
+                <article id="journey-1" class="rounded-xl border border-divider bg-white p-5">
                   <h3 class="font-display text-xl font-semibold text-text-primary mb-2">Visit Preparation Plan</h3>
                   <p class="text-sm text-text-secondary mb-3">Build a focused pre-visit brief with top concerns, priorities, and the questions that matter most.</p>
                   <a href="schedule.html" class="inline-flex items-center gap-2 text-deep-teal font-medium text-sm hover:text-teal-hover transition-colors">Chat With Us <span aria-hidden="true">→</span></a>
                 </article>
-                <article id="path-2" class="rounded-xl border border-divider bg-white p-5">
+                <article id="journey-2" class="rounded-xl border border-divider bg-white p-5">
                   <h3 class="font-display text-xl font-semibold text-text-primary mb-2">Advocacy Support</h3>
                   <p class="text-sm text-text-secondary mb-3">Strengthen your voice in appointments so decisions reflect your lived reality, not just lab values.</p>
                   <a href="schedule.html" class="inline-flex items-center gap-2 text-deep-teal font-medium text-sm hover:text-teal-hover transition-colors">Chat With Us <span aria-hidden="true">→</span></a>
                 </article>
-                <article id="path-3" class="rounded-xl border border-divider bg-white p-5">
+                <article id="journey-3" class="rounded-xl border border-divider bg-white p-5">
                   <h3 class="font-display text-xl font-semibold text-text-primary mb-2">Post-Visit Clarity</h3>
                   <p class="text-sm text-text-secondary mb-3">Translate recommendations into practical, understandable actions for daily life.</p>
                   <a href="schedule.html" class="inline-flex items-center gap-2 text-deep-teal font-medium text-sm hover:text-teal-hover transition-colors">Chat With Us <span aria-hidden="true">→</span></a>
                 </article>
           </div>
           <div class="spf-toolkits mt-8 rounded-xl border border-divider bg-deep-teal/3 p-5 md:p-6 hidden" aria-live="polite">
-            <p class="text-xs uppercase tracking-widest text-text-muted mb-2 font-medium">Suggested toolkits for your path (placeholders)</p>
+            <p class="text-xs uppercase tracking-widest text-text-muted mb-2 font-medium">Suggested toolkits for your journey (placeholders)</p>
             <div class="space-y-2">
               <div class="spf-toolkit-group hidden" data-toolkit-key="patk-1a">
                 <a href="#" class="block text-sm text-deep-teal font-medium hover:text-teal-hover transition-colors">New-diagnosis question set (placeholder)</a>
@@ -198,7 +210,7 @@
               </div>
               <div class="spf-toolkit-group hidden" data-toolkit-key="patk-2a">
                 <a href="#" class="block text-sm text-deep-teal font-medium hover:text-teal-hover transition-colors">Second-opinion prep brief (placeholder)</a>
-                <a href="#" class="block text-sm text-deep-teal font-medium hover:text-teal-hover transition-colors">Care pathway compare sheet (placeholder)</a>
+                <a href="#" class="block text-sm text-deep-teal font-medium hover:text-teal-hover transition-colors">Care journey compare sheet (placeholder)</a>
               </div>
               <div class="spf-toolkit-group hidden" data-toolkit-key="patk-2b">
                 <a href="#" class="block text-sm text-deep-teal font-medium hover:text-teal-hover transition-colors">Confidence scripts for appointments (placeholder)</a>
@@ -239,7 +251,7 @@
             <ul class="space-y-2 text-sm">
               <li><a href="index.html" class="text-white/70 hover:text-white transition-colors">Home</a></li>
               <li><a href="ace-framework.html" class="text-white/70 hover:text-white transition-colors">How We Work</a></li>
-              <li><a href="case-studies.html" class="text-white/70 hover:text-white transition-colors">Case Studies</a></li>
+              <li><a href="ace-framework.html" class="text-white/70 hover:text-white transition-colors">ACE Framework</a></li>
             </ul>
           </div>
           <div class="md:pl-8">

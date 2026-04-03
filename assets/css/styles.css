@@ -76,26 +76,335 @@ body {
   animation-delay: 0.5s;
   opacity: 0;
 }
+.animate-delay-6 {
+  animation-delay: 0.6s;
+  opacity: 0;
+}
 
 /* Hover Effects */
-.path-card {
+.journey-card {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.path-card:hover {
+.journey-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 25px 50px -12px rgba(26, 58, 58, 0.15);
 }
 
-.path-card:hover .card-icon {
+.journey-card:hover .card-icon {
   transform: scale(1.1);
 }
 
-.path-card:hover .card-arrow {
+.journey-card:hover .card-arrow {
   transform: translateX(4px);
 }
 
-/* “Find Your Path” buttons (homepage) — make selected state fully filled */
+/* Header “See More” dropdown */
+.nav-more-wrap.nav-more-open .nav-more-chevron {
+  transform: rotate(180deg);
+}
+
+.nav-more-btn:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.85);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Primary navbar (classic sticky pattern, Dr. Youssef theme)
+   -------------------------------------------------------------------------- */
+.navbar {
+  --navbar-height: 5.5rem;
+  --navbar-bg: rgba(31, 62, 90, 0.95);
+  --navbar-text: rgba(255, 255, 255, 0.88);
+  --navbar-teal: #1f3e5a;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  min-height: var(--navbar-height);
+  display: flex;
+  align-items: center;
+  background-color: var(--navbar-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 2vw, 1.25rem);
+  min-height: var(--navbar-height);
+  position: relative;
+  gap: 0.75rem;
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+  text-decoration: none;
+  color: #fff;
+  z-index: 2;
+}
+
+.navbar__brand:hover {
+  color: #fff;
+}
+
+.navbar__logo-wrap {
+  width: 3.75rem;
+  height: 3.75rem;
+  overflow: hidden;
+  border-radius: 9999px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.navbar__brand:hover .navbar__logo-wrap {
+  transform: scale(1.05);
+}
+
+.navbar__logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.navbar__title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .navbar__title {
+    display: block;
+  }
+}
+
+.navbar__toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 0.25rem;
+  background: transparent;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.navbar__toggle-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #fff;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.navbar__toggle.is-active .navbar__toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.navbar__toggle.is-active .navbar__toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar__toggle.is-active .navbar__toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.navbar__toggle:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.85);
+  outline-offset: 3px;
+}
+
+.navbar__menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--navbar-teal);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  max-height: min(70vh, calc(100dvh - var(--navbar-height)));
+  overflow-y: auto;
+}
+
+.navbar__menu.navbar__menu--open {
+  display: flex;
+}
+
+.navbar__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar__item {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar__item--dropdown {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar__link {
+  display: block;
+  padding: 1rem 1.25rem;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--navbar-text);
+  text-decoration: none;
+  text-align: center;
+  transition: color 0.2s ease;
+}
+
+.navbar__link:hover {
+  color: #fff;
+}
+
+.navbar__link--multiline {
+  line-height: 1;
+}
+
+/* Two tight rows: no extra gap from <br /> (use stacked blocks only) */
+.navbar__link--multiline .navbar__line {
+  display: block;
+  white-space: nowrap;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.navbar__link--active,
+.navbar__link[aria-current="page"] {
+  color: #fff;
+}
+
+.navbar__link--dropdown {
+  width: 100%;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.nav-more-panel.navbar__dropdown-panel {
+  position: static;
+  transform: none;
+  left: auto;
+  margin: 0 0.75rem 0.75rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+@media (min-width: 1024px) {
+  .navbar__toggle {
+    display: none;
+  }
+
+  .navbar__menu {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    position: static;
+    width: auto;
+    flex: 1;
+    min-width: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .navbar__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.25rem 0.35rem;
+    width: auto;
+  }
+
+  .navbar__item,
+  .navbar__item--dropdown {
+    border: none;
+  }
+
+  .navbar__link {
+    padding: 0.5rem 0.5rem;
+    text-align: center;
+  }
+
+  .navbar__link--multiline {
+    max-width: none;
+    padding-inline: 1rem;
+  }
+
+  /* Extra air between the three service columns only (not before ACE / Schedule / See More) */
+  .navbar__item:has(.navbar__link--multiline)
+    + .navbar__item:has(.navbar__link--multiline) {
+    margin-inline-start: 0.55rem;
+  }
+
+  /* Nudge ACE · Schedule Consultation · See More right vs the service trio */
+  .navbar__list > .navbar__item:nth-child(4) {
+    margin-inline-start: clamp(0.75rem, 2.25vw, 1.5rem);
+  }
+
+  /* Same step as multiline + multiline between ACE → Schedule → See More */
+  .navbar__list > .navbar__item:nth-child(5),
+  .navbar__list > .navbar__item:nth-child(6) {
+    margin-inline-start: 0.55rem;
+  }
+
+  a.navbar__link--active,
+  a.navbar__link[aria-current="page"] {
+    border-bottom: 2px solid #fff;
+    padding-bottom: 0.15rem;
+  }
+
+  .nav-more-panel.navbar__dropdown-panel {
+    position: absolute;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    margin: 0;
+    margin-top: 0.35rem;
+    top: 100%;
+  }
+
+  .nav-more-wrap {
+    position: relative;
+  }
+}
+
+/* “Find Your Journey” buttons (homepage) — make selected state fully filled */
 .sf-role-btn[data-active="true"] {
   background: rgba(31, 62, 90, 0.98) !important; /* deep-teal */
   border-color: rgba(31, 62, 90, 1) !important;
@@ -233,3 +542,4 @@ body {
   letter-spacing: 0.05em;
   color: #9ca3af;
 }
+
