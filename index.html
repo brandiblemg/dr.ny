@@ -125,7 +125,12 @@
           </svg></button>
         </div>
        </div>
-       <p class="mt-4 text-center font-display text-2xl font-semibold text-text-primary">Empathetic Engagement Through Education.</p>
+       <div class="mt-4 md:mt-5 bg-base rounded-xl border border-divider shadow-sm px-4 py-3 md:px-5 md:py-4">
+        <div class="text-center max-w-2xl mx-auto">
+         <p class="text-xs uppercase tracking-widest text-text-muted mb-1 font-medium">Triple E Concept</p>
+         <h2 class="font-display text-xl md:text-2xl font-semibold text-text-primary leading-snug">Empathetic Engagement Through Education.</h2>
+        </div>
+       </div>
       </div>
      </div>
     </div>
@@ -136,8 +141,8 @@
      <div class="text-center max-w-3xl mx-auto mb-8">
       <h2 class="font-display text-3xl lg:text-4xl font-semibold text-text-primary">Choose Your Journey</h2>
      </div><!-- Journey cards -->
-     <div class="grid md:grid-cols-3 gap-6 lg:gap-8"><!-- Card 1: Patient -->
-      <a href="#service-finder" id="service-patient" data-role="patient" class="service-start journey-card group bg-white rounded-2xl p-8 shadow-sm border border-divider cursor-pointer relative overflow-hidden block scroll-mt-28"><!-- Accent bar -->
+     <div class="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch"><!-- Card 1: Patient -->
+      <a href="#service-finder" id="service-patient" data-role="patient" class="service-start journey-card group flex flex-col h-full bg-white rounded-2xl p-8 shadow-sm border border-divider cursor-pointer relative overflow-hidden scroll-mt-28"><!-- Accent bar -->
        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-deep-teal to-deep-teal/60"></div><!-- Icon + title row -->
        <div class="flex items-center gap-4 mb-6">
         <div class="card-icon w-16 h-16 shrink-0 bg-deep-teal/5 rounded-2xl flex items-center justify-center transition-transform">
@@ -146,15 +151,15 @@
         </div>
         <h3 id="patient-title" class="font-display text-xl font-semibold text-text-primary mb-0">Patient</h3>
        </div><!-- Content -->
-       <p class="text-text-secondary mb-6 leading-relaxed">If you've felt unheard, dismissed, or lost in the system—let's change that. Reclaim your voice in your healthcare journey.</p><!-- Micro CTA -->
-       <div class="inline-flex items-center gap-2 text-sm font-semibold text-deep-teal transition-colors group-hover:text-teal-hover">
+       <p class="text-text-secondary mb-0 leading-relaxed">If you've felt unheard, dismissed, or lost in the system—let's change that. Reclaim your voice in your healthcare journey.</p><!-- Micro CTA -->
+       <div class="mt-auto pt-6 inline-flex items-center gap-2 text-sm font-semibold text-deep-teal transition-colors group-hover:text-teal-hover shrink-0">
         <span class="border-b-2 border-deep-teal/50 pb-0.5 transition-colors group-hover:border-teal-hover">Are you a patient?</span>
         <svg class="card-arrow w-4 h-4 shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg>
        </div><!-- Hover gradient -->
        <div class="absolute inset-0 bg-gradient-to-br from-deep-teal/0 via-deep-teal/0 to-deep-teal/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
       </a><!-- Card 2: Pharma -->
-      <a href="#service-finder" id="service-pharma" data-role="pharma" class="service-start journey-card group bg-white rounded-2xl p-8 shadow-sm border border-divider cursor-pointer relative overflow-hidden block scroll-mt-28"><!-- Accent bar -->
+      <a href="#service-finder" id="service-pharma" data-role="pharma" class="service-start journey-card group flex flex-col h-full bg-white rounded-2xl p-8 shadow-sm border border-divider cursor-pointer relative overflow-hidden scroll-mt-28"><!-- Accent bar -->
        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-deep-teal to-deep-teal/60"></div><!-- Icon + title row -->
        <div class="flex items-center gap-4 mb-6">
         <div class="card-icon w-16 h-16 shrink-0 bg-deep-teal/5 rounded-2xl flex items-center justify-center transition-transform">
@@ -163,15 +168,15 @@
         </div>
         <h3 id="pharma-title" class="font-display text-xl font-semibold text-text-primary mb-0">Pharmaceutical Client</h3>
        </div><!-- Content -->
-       <p class="text-text-secondary mb-6 leading-relaxed">If you're designing studies that need real patient insight—let's build research that resonates and recruits authentically.</p><!-- Micro CTA -->
-       <div class="inline-flex items-center gap-2 text-sm font-semibold text-deep-teal transition-colors group-hover:text-teal-hover">
+       <p class="text-text-secondary mb-0 leading-relaxed">If you're designing studies that need real patient insight—let's build research that resonates and recruits authentically.</p><!-- Micro CTA -->
+       <div class="mt-auto pt-6 inline-flex items-center gap-2 text-sm font-semibold text-deep-teal transition-colors group-hover:text-teal-hover shrink-0">
         <span class="border-b-2 border-deep-teal/50 pb-0.5 transition-colors group-hover:border-teal-hover">Are you a pharmaceutical client?</span>
         <svg class="card-arrow w-4 h-4 shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg>
        </div><!-- Hover gradient -->
        <div class="absolute inset-0 bg-gradient-to-br from-deep-teal/0 via-deep-teal/0 to-deep-teal/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
       </a><!-- Card 3: Provider -->
-      <a href="#service-finder" id="service-provider" data-role="provider" class="service-start journey-card group bg-white rounded-2xl p-8 shadow-sm border border-divider cursor-pointer relative overflow-hidden block scroll-mt-28"><!-- Accent bar -->
+      <a href="#service-finder" id="service-provider" data-role="provider" class="service-start journey-card group flex flex-col h-full bg-white rounded-2xl p-8 shadow-sm border border-divider cursor-pointer relative overflow-hidden scroll-mt-28"><!-- Accent bar -->
        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-deep-teal to-warm-sand"></div><!-- Icon + title row -->
        <div class="flex items-center gap-4 mb-6">
         <div class="card-icon w-16 h-16 shrink-0 bg-deep-teal/5 rounded-2xl flex items-center justify-center transition-transform">
@@ -180,8 +185,8 @@
         </div>
         <h3 id="provider-title" class="font-display text-xl font-semibold text-text-primary mb-0">Healthcare Provider</h3>
        </div><!-- Content -->
-       <p class="text-text-secondary mb-6 leading-relaxed">If you want to improve patient communication and outcomes—let's rediscover the human connection in clinical practice.</p><!-- Micro CTA -->
-       <div class="inline-flex items-center gap-2 text-sm font-semibold text-deep-teal transition-colors group-hover:text-teal-hover">
+       <p class="text-text-secondary mb-0 leading-relaxed">If you want to improve patient communication and outcomes—let's rediscover the human connection in clinical practice.</p><!-- Micro CTA -->
+       <div class="mt-auto pt-6 inline-flex items-center gap-2 text-sm font-semibold text-deep-teal transition-colors group-hover:text-teal-hover shrink-0">
         <span class="border-b-2 border-deep-teal/50 pb-0.5 transition-colors group-hover:border-teal-hover">Are you a healthcare provider?</span>
         <svg class="card-arrow w-4 h-4 shrink-0 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg>

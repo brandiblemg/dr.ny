@@ -519,6 +519,22 @@ body {
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
 }
 
+/* ACE diagram wedges: hue + luminance differ from deep-teal “A” for color-vision accessibility */
+.ace-wedge-compassion {
+  fill: #5b21b6; /* violet — distinct from blue-teal and orange “E” */
+}
+
+.ace-wedge-education {
+  fill: #c2410c; /* orange — strong contrast in grayscale vs A and C */
+}
+
+.ace-wedge-label {
+  fill: #ffffff;
+  paint-order: stroke fill;
+  stroke: rgba(0, 0, 0, 0.22);
+  stroke-width: 2px;
+}
+
 /* Graphic placeholders – replace inner content with <img src="..." alt="..." class="w-full h-full object-cover rounded-inherit"> when adding assets */
 .graphic-placeholder {
   background: #f2f0eb;
