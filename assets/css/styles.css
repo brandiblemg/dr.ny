@@ -140,7 +140,9 @@ body {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 clamp(0.75rem, 2vw, 1.25rem);
+  padding-block: 0;
+  padding-inline-start: clamp(0.75rem, 2vw, 1.25rem);
+  padding-inline-end: env(safe-area-inset-right, 0px);
   min-height: var(--navbar-height);
   position: relative;
   gap: 0.75rem;
@@ -330,7 +332,7 @@ body {
     display: flex !important;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
     position: static;
     width: auto;
     flex: 1;
@@ -342,45 +344,58 @@ body {
     overflow: visible;
   }
 
+  /* Spacer keeps the cluster on the right; equal gaps only between real nav items */
   .navbar__list {
+    display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 0.25rem 0.35rem;
-    width: auto;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    width: 100%;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .navbar__list::before {
+    content: "";
+    flex: 1 1 auto;
+    min-width: 0;
+    align-self: stretch;
+  }
+
+  .navbar__list > li:not(:first-of-type) {
+    margin-inline-start: clamp(0.75rem, 1.5vw, 1.25rem);
   }
 
   .navbar__item,
   .navbar__item--dropdown {
     border: none;
+    flex-shrink: 0;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
   }
 
   .navbar__link {
     padding: 0.5rem 0.5rem;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .navbar__link--dropdown {
+    display: flex;
+    width: 100%;
   }
 
   .navbar__link--multiline {
     max-width: none;
-    padding-inline: 1rem;
-  }
-
-  /* Extra air between the three service columns only (not before ACE / Schedule / See More) */
-  .navbar__item:has(.navbar__link--multiline)
-    + .navbar__item:has(.navbar__link--multiline) {
-    margin-inline-start: 0.55rem;
-  }
-
-  /* Nudge ACE · Schedule Consultation · See More right vs the service trio */
-  .navbar__list > .navbar__item:nth-child(4) {
-    margin-inline-start: clamp(0.75rem, 2.25vw, 1.5rem);
-  }
-
-  /* Same step as multiline + multiline between ACE → Schedule → See More */
-  .navbar__list > .navbar__item:nth-child(5),
-  .navbar__list > .navbar__item:nth-child(6) {
-    margin-inline-start: 0.55rem;
+    padding-inline: 0.5rem;
   }
 
   a.navbar__link--active,
