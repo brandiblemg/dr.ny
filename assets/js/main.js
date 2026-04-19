@@ -99,6 +99,67 @@ document.querySelectorAll(".journey-card, .ace-pillar").forEach((el) => {
   observer.observe(el);
 });
 
+// Homepage credibility stats — count up from zero when the block enters view
+(function initCredibilityStatCounters() {
+  const root = document.getElementById("credibility-stats");
+  if (!root) return;
+
+  const counters = root.querySelectorAll("[data-count-target]");
+  if (!counters.length) return;
+
+  const durationMs = 1600;
+
+  const applyFinalValues = () => {
+    counters.forEach((el) => {
+      const target = el.getAttribute("data-count-target") || "0";
+      const suffix = el.getAttribute("data-suffix") ?? "";
+      el.textContent = `${target}${suffix}`;
+    });
+  };
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    applyFinalValues();
+    return;
+  }
+
+  let started = false;
+
+  const statObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting || started) return;
+        started = true;
+        statObserver.disconnect();
+
+        counters.forEach((el) => {
+          const target = parseFloat(el.getAttribute("data-count-target") || "0");
+          const suffix = el.getAttribute("data-suffix") ?? "";
+          if (Number.isNaN(target)) return;
+
+          const t0 = performance.now();
+
+          function frame(t) {
+            const p = Math.min((t - t0) / durationMs, 1);
+            const eased = 1 - (1 - p) ** 3;
+            const value = Math.round(eased * target);
+            el.textContent = `${value}${suffix}`;
+            if (p < 1) {
+              requestAnimationFrame(frame);
+            } else {
+              el.textContent = `${target}${suffix}`;
+            }
+          }
+
+          requestAnimationFrame(frame);
+        });
+      });
+    },
+    { threshold: 0.25, rootMargin: "0px 0px -8% 0px" }
+  );
+
+  statObserver.observe(root);
+})();
+
 // Interactive Service Finder (homepage “Find Your Journey”; service pages keep their own journey finders)
 const serviceFinder = document.getElementById("service-finder");
 
