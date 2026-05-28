@@ -103,13 +103,9 @@
      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center"><!-- Left: Content -->
       <div class="space-y-8">
       <h1 id="hero-headline" class="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight text-text-primary animate-fade-in-up animate-delay-2">Listening is the Best <span class="gradient-text">Medicine.</span><br /><span class="block mt-3 sm:mt-4">Own Your Journey!</span></h1>
-      <p class="text-xs text-text-muted animate-fade-in-up animate-delay-3 max-w-2xl">*Metaphor only—not medical treatment or advice.</p>
-      <p class="animate-fade-in-up animate-delay-4 text-lg text-text-secondary max-w-2xl">Dr. Nader N. Youssef, MD, MBA is a pharmaceutical development executive, board-certified physician, and patient advocate. Through <a href="ace-framework.html" class="text-deep-teal font-medium underline decoration-deep-teal/35 underline-offset-[3px] hover:decoration-deep-teal hover:text-teal-hover transition-colors">advocacy, compassion &amp; education (ACE)</a>, he helps patients, pharmaceutical teams, and healthcare professionals strengthen communication and engagement—not clinical diagnosis, treatment, or prescribing.</p>
-      <div class="legal-notice max-w-2xl animate-fade-in-up animate-delay-5" role="note">
-       <p class="legal-notice__title">Professional services only</p>
-       <p class="mb-0">Dr. Youssef provides advocacy, education, communication support, and consulting services. He does not provide medical advice as a treating physician. <a href="professional-services-disclaimer.html">Full disclaimer</a></p>
-      </div>
-       <div class="flex flex-wrap items-center gap-4 animate-fade-in-up animate-delay-6"><a href="schedule.html" class="inline-flex items-center gap-2 px-6 py-4 bg-deep-teal text-white font-medium rounded-none border-2 border-deep-teal shadow-lg hover:bg-teal-hover hover:border-teal-hover transition-all hover:shadow-xl group"> Schedule a Conversation
+      <p class="animate-fade-in-up animate-delay-3 text-lg text-text-secondary max-w-2xl">Dr. Nader N. Youssef, MD, MBA is a pharmaceutical development executive, board-certified physician, and patient advocate. Through <a href="ace-framework.html" class="text-deep-teal font-medium underline decoration-deep-teal/35 underline-offset-[3px] hover:decoration-deep-teal hover:text-teal-hover transition-colors">advocacy, compassion &amp; education (ACE)</a>, he helps patients, pharmaceutical teams, and healthcare professionals strengthen communication and engagement—not clinical diagnosis, treatment, or prescribing.</p>
+      <p class="text-xs text-text-muted animate-fade-in-up animate-delay-4 max-w-2xl">*Metaphor only—not medical treatment or advice.</p>
+       <div class="flex flex-wrap items-center gap-4 animate-fade-in-up animate-delay-5"><a href="schedule.html" class="inline-flex items-center gap-2 px-6 py-4 bg-deep-teal text-white font-medium rounded-none border-2 border-deep-teal shadow-lg hover:bg-teal-hover hover:border-teal-hover transition-all hover:shadow-xl group"> Schedule a Conversation
          <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
          </svg></a>
       </div>
@@ -203,7 +199,7 @@
      <section id="service-finder" class="home-journey-finder scroll-mt-28 mt-16 lg:mt-20">
       <div class="grid lg:grid-cols-2 gap-10 items-start">
        <div class="bg-white rounded-2xl border border-divider shadow-sm p-6 md:p-8">
-        <h2 class="font-display text-2xl font-semibold text-text-primary mb-3">Find Your Journey</h2>
+        <h2 class="font-display text-2xl font-semibold text-text-primary mb-3">Begin Today!</h2>
         <p class="text-text-secondary mb-6">Start with two quick steps here—then continue your journey on the page that fits you best to narrow your focus and explore next actions.</p>
         <div class="mb-6">
          <p class="text-sm font-medium text-text-muted uppercase tracking-widest mb-3">Step 1 · Are you a...</p>
@@ -466,6 +462,11 @@
     </div>
    </footer>
   </div>
+  <aside id="disclaimer-popup" class="disclaimer-popup" role="dialog" aria-label="Professional services notice" aria-live="polite">
+    <button type="button" class="disclaimer-popup__close" id="disclaimer-popup-close" aria-label="Close notice">&times;</button>
+    <p class="disclaimer-popup__title">Professional services only</p>
+    <p class="disclaimer-popup__body">Dr. Youssef provides advocacy, education, communication support, and consulting services. He does not provide medical advice as a treating physician. <a href="professional-services-disclaimer.html">Full disclaimer</a></p>
+  </aside>
   <script src="./assets/js/main.js" defer></script>
 </body>
 </html>

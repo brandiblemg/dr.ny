@@ -419,7 +419,7 @@ body {
   }
 }
 
-/* “Find Your Journey” buttons (homepage) — make selected state fully filled */
+/* “Begin Today!” journey finder buttons (homepage) — make selected state fully filled */
 .sf-role-btn[data-active="true"] {
   background: rgba(31, 62, 90, 0.98) !important; /* deep-teal */
   border-color: rgba(31, 62, 90, 1) !important;
@@ -607,5 +607,116 @@ body {
 
 .legal-notice a:hover {
   color: #163149;
+}
+
+.legal-notice--compact {
+  padding: 1rem 1.125rem;
+  margin-top: 1rem;
+}
+
+.legal-notice-subtle {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: #7a7a7a;
+}
+
+.legal-notice-subtle a {
+  color: #1f3e5a;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.legal-notice-subtle a:hover {
+  color: #163149;
+}
+
+/* Homepage / sitewide professional-services popup (bottom-left) */
+.disclaimer-popup {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  z-index: 45;
+  width: min(100vw - 2.5rem, 22rem);
+  padding: 1rem 2.25rem 1rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(31, 62, 90, 0.12);
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 4px 24px rgba(31, 62, 90, 0.12);
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: #515151;
+  backdrop-filter: blur(8px);
+  animation: disclaimer-popup-in 0.4s ease-out;
+}
+
+.disclaimer-popup.is-dismissed {
+  display: none;
+}
+
+.disclaimer-popup__title {
+  font-weight: 600;
+  font-size: 0.8125rem;
+  color: #2a2a2a;
+  margin: 0 0 0.35rem;
+}
+
+.disclaimer-popup__body {
+  margin: 0;
+}
+
+.disclaimer-popup__body a {
+  color: #1f3e5a;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.disclaimer-popup__body a:hover {
+  color: #163149;
+}
+
+.disclaimer-popup__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 0.375rem;
+  background: transparent;
+  color: #7a7a7a;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.15s, background-color 0.15s;
+}
+
+.disclaimer-popup__close:hover {
+  color: #2a2a2a;
+  background: rgba(31, 62, 90, 0.06);
+}
+
+@keyframes disclaimer-popup-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .disclaimer-popup {
+    bottom: 1rem;
+    left: 1rem;
+    width: min(100vw - 2rem, 20rem);
+    font-size: 0.75rem;
+  }
 }
 

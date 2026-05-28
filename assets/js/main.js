@@ -160,7 +160,7 @@ document.querySelectorAll(".journey-card, .ace-pillar").forEach((el) => {
   statObserver.observe(root);
 })();
 
-// Interactive Service Finder (homepage “Find Your Journey”; service pages keep their own journey finders)
+// Interactive Service Finder (homepage “Begin Today!”; service pages keep their own journey finders)
 const serviceFinder = document.getElementById("service-finder");
 
 /** Homepage journey → service page panel + labels for resume banner */
@@ -389,7 +389,7 @@ if (serviceFinder) {
   });
 }
 
-// Standalone “Find Your Journey” on service pages (goal → narrow → anchor cards + toolkits)
+// Standalone “Begin Today!” on service pages (goal → narrow → anchor cards + toolkits)
 document.querySelectorAll(".service-journey-finder").forEach((root) => {
   const step2 = root.querySelector(".spf-step2");
   const toolkitsRoot = root.querySelector(".spf-toolkits");
@@ -618,6 +618,24 @@ if (heroVideo && heroPlayBtn) {
     heroPlayBtn.classList.remove("opacity-0", "pointer-events-none");
   });
 }
+
+// Homepage professional-services popup (bottom-left, closable)
+(function initDisclaimerPopup() {
+  const popup = document.getElementById("disclaimer-popup");
+  const closeBtn = document.getElementById("disclaimer-popup-close");
+  if (!popup || !closeBtn) return;
+
+  const storageKey = "drny-disclaimer-dismissed";
+  if (localStorage.getItem(storageKey) === "1") {
+    popup.classList.add("is-dismissed");
+    return;
+  }
+
+  closeBtn.addEventListener("click", () => {
+    popup.classList.add("is-dismissed");
+    localStorage.setItem(storageKey, "1");
+  });
+})();
 
 // Chatbase widget embed (site-wide)
 (function initChatbase() {
