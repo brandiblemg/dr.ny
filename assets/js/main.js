@@ -228,7 +228,7 @@ if (serviceFinder) {
     patient: {
       title: "Patient Engagement Practice",
       body:
-        "Biopsychosocial approach: coping, modifiable factors (sleep, diet, stress), and medication. Pre-visit consultation to identify fears, mistrust, and knowledge gaps; 3 key questions for your physician; optional remote accompaniment; post-visit education. Dr. Youssef does not replace your physician—he ensures you are heard, informed, and empowered. Validated through ~20 focus group sessions over 18 months."
+        "Educational and advocacy support only—not medical advice or treatment. Biopsychosocial approach: coping, modifiable factors (sleep, diet, stress), and topics to discuss with your treating clinicians. Pre-visit preparation for fears, mistrust, and knowledge gaps; help preparing key questions for your physician; optional remote accompaniment; post-visit education to reinforce your care team's guidance. Dr. Youssef does not replace your physicians—he supports you in being heard, informed, and empowered. Validated through ~20 focus group sessions over 18 months."
     },
     pharma: {
       title: "Pharmaceutical Consulting",
