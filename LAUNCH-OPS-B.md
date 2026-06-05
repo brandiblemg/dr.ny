@@ -94,8 +94,11 @@ No code change required if embed already works on production.
 ## Post-deploy verification
 
 ```bash
+cd "/Users/michaelnakhla/Documents/Wesites/Dr. Nader Yousef"
 ./scripts/verify-launch.sh
 ```
+
+**If `dig @1.1.1.1 consultdrnader.com` works but `curl https://consultdrnader.com` fails:** your Mac/router DNS cache is stale. Set DNS to `1.1.1.1` in System Settings → Network → Wi‑Fi → DNS, or wait for propagation. The verify script falls back to Cloudflare DNS automatically.
 
 Or manually:
 
