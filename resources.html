@@ -97,7 +97,8 @@
           <p class="text-lg text-text-secondary">Frameworks, toolkits, and methodology resources to support your journey in patient-centered engagement.</p>
         </div>
 
-        <div class="legal-notice max-w-3xl mx-auto mb-10" role="note">
+        <div id="resources-educational-notice" class="legal-notice legal-notice--dismissible mb-10" role="note">
+          <button type="button" class="legal-notice__close" id="resources-educational-notice-close" aria-label="Close notice">&times;</button>
           <p class="legal-notice__title">Educational resources only</p>
           <p class="mb-0">Downloads and materials on this page are for general education and communication support. They are not medical advice, diagnosis, or treatment, and are not a substitute for care from your licensed clinicians. Direct medical questions and emergencies to your treating providers or emergency services. <a href="professional-services-disclaimer.html">Full disclaimer</a></p>
         </div>
@@ -186,6 +187,11 @@
       </div>
     </footer>
   </div>
+  <aside id="disclaimer-popup" class="disclaimer-popup" role="dialog" aria-modal="true" aria-label="Professional services notice" aria-live="polite">
+    <p class="disclaimer-popup__title">Professional services only</p>
+    <p class="disclaimer-popup__body">Dr. Youssef provides advocacy, education, communication support, and consulting services. He does not provide medical advice as a treating physician. <a href="professional-services-disclaimer.html">Full disclaimer</a></p>
+    <button type="button" class="disclaimer-popup__acknowledge" id="disclaimer-popup-acknowledge">Acknowledged</button>
+  </aside>
   <script src="./assets/site-config.js"></script>
   <script src="./assets/js/main.js" defer></script>
 </body>

@@ -651,13 +651,36 @@ if (heroVideo && heroPlayBtn) {
   document.head.appendChild(script);
 })();
 
-// Professional-services popup (bottom-left, closable)
+// Resources page — educational notice (full-width, closable)
+(function initResourcesEducationalNotice() {
+  const notice = document.getElementById("resources-educational-notice");
+  const closeBtn = document.getElementById("resources-educational-notice-close");
+  if (!notice || !closeBtn) return;
+
+  const storageKey = "drny-resources-notice-dismissed";
+  localStorage.removeItem(storageKey);
+
+  const dismiss = () => {
+    notice.classList.add("is-dismissed");
+    sessionStorage.setItem(storageKey, "1");
+  };
+
+  if (sessionStorage.getItem(storageKey) === "1") {
+    notice.classList.add("is-dismissed");
+    return;
+  }
+
+  closeBtn.addEventListener("click", dismiss);
+})();
+
+// Professional-services popup (bottom-left, sitewide — Acknowledged to dismiss)
 (function initDisclaimerPopup() {
   const popup = document.getElementById("disclaimer-popup");
-  const closeBtn = document.getElementById("disclaimer-popup-close");
-  if (!popup || !closeBtn) return;
+  const acknowledgeBtn = document.getElementById("disclaimer-popup-acknowledge");
+  if (!popup || !acknowledgeBtn) return;
 
   const storageKey = "drny-disclaimer-dismissed";
+  localStorage.removeItem(storageKey);
   let lastFocused = null;
 
   const getFocusable = () =>
@@ -667,9 +690,9 @@ if (heroVideo && heroPlayBtn) {
       )
     ).filter((el) => !el.hasAttribute("disabled") && el.offsetParent !== null);
 
-  const closePopup = () => {
+  const dismissPopup = () => {
     popup.classList.add("is-dismissed");
-    localStorage.setItem(storageKey, "1");
+    sessionStorage.setItem(storageKey, "1");
     document.removeEventListener("keydown", onKeyDown);
     if (lastFocused && typeof lastFocused.focus === "function") {
       lastFocused.focus();
@@ -677,10 +700,6 @@ if (heroVideo && heroPlayBtn) {
   };
 
   const onKeyDown = (e) => {
-    if (e.key === "Escape") {
-      closePopup();
-      return;
-    }
     if (e.key !== "Tab") return;
 
     const focusable = getFocusable();
@@ -698,16 +717,16 @@ if (heroVideo && heroPlayBtn) {
     }
   };
 
-  if (localStorage.getItem(storageKey) === "1") {
+  if (sessionStorage.getItem(storageKey) === "1") {
     popup.classList.add("is-dismissed");
     return;
   }
 
   lastFocused = document.activeElement;
   document.addEventListener("keydown", onKeyDown);
-  closeBtn.focus();
+  acknowledgeBtn.focus();
 
-  closeBtn.addEventListener("click", closePopup);
+  acknowledgeBtn.addEventListener("click", dismissPopup);
 })();
 
 // Chatbase widget embed (site-wide) — deferred until scroll or click (see site-config.js)
