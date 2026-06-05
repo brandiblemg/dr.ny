@@ -21,5 +21,6 @@ window.SITE_CONFIG = {
     "www.consultdryoussef.com",
     "drny.netlify.app",
     "localhost",
+    "127.0.0.1",
   ],
 };

@@ -729,7 +729,7 @@ if (heroVideo && heroPlayBtn) {
   acknowledgeBtn.addEventListener("click", dismissPopup);
 })();
 
-// Chatbase widget embed (site-wide) — deferred until scroll or click (see site-config.js)
+// Chatbase widget embed (site-wide) — deferred until scroll or click; persists for session
 (function initChatbase() {
   const config = window.SITE_CONFIG || {};
   const host = window.location.hostname;
@@ -741,11 +741,13 @@ if (heroVideo && heroPlayBtn) {
     );
   }
 
+  const sessionKey = "drny-chatbase-loaded";
   let loaded = false;
 
   const loadChatbase = () => {
     if (loaded) return;
     loaded = true;
+    sessionStorage.setItem(sessionKey, "1");
     window.removeEventListener("scroll", onScroll);
     document.removeEventListener("click", loadChatbase, true);
 
@@ -779,6 +781,11 @@ if (heroVideo && heroPlayBtn) {
       loadChatbase();
     }
   };
+
+  if (sessionStorage.getItem(sessionKey) === "1" || window.scrollY >= 300) {
+    loadChatbase();
+    return;
+  }
 
   window.addEventListener("scroll", onScroll, { passive: true });
   document.addEventListener("click", loadChatbase, true);
