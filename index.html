@@ -6,6 +6,7 @@
   <link rel="icon" type="image/png" href="assets/Logo/1.png">
   <link rel="apple-touch-icon" href="assets/Logo/1.png">
   <link rel="canonical" href="https://consultdrnader.com/">
+  <link rel="preload" as="image" href="./assets/DrNaderYoussef-poster-46s.webp" type="image/webp" fetchpriority="high">
   <meta name="description" content="Patient advocacy, pharmaceutical consulting, and leadership coaching through advocacy, compassion, and education (ACE).">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Dr. Nader Youssef">
@@ -34,7 +35,8 @@
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="./assets/css/styles.css">
   <script>
     tailwind.config = {
@@ -110,7 +112,8 @@
           </ul>
         </nav>
       </div>
-    </header><!-- ============================================ --> <!-- SECTION 2: HERO --> <!-- ============================================ -->
+    </header>
+    <main><!-- ============================================ --> <!-- SECTION 2: HERO --> <!-- ============================================ -->
   <section class="relative pt-[9.2rem] pb-7 lg:pt-[10.35rem] lg:pb-10 overflow-hidden"><!-- Subtle background pattern -->
     <div class="absolute inset-0 pattern-overlay"></div><!-- Decorative elements -->
     <div class="absolute top-20 right-0 w-96 h-96 bg-gradient-to-br from-accent-sand/10 to-transparent rounded-full blur-3xl"></div>
@@ -127,23 +130,23 @@
       </div><!-- Right: Video Placeholder -->
       <div id="video-section" class="relative animate-scale-in animate-delay-3">
        <div class="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
-        <video id="hero-video" class="w-full h-full object-cover bg-deep-teal cursor-pointer" src="./assets/DrNaderYoussef.mp4" poster="./assets/DrNaderYoussef-poster-46s.jpg" playsinline preload="none"></video><!-- Decorative grid pattern -->
+        <video id="hero-video" class="w-full h-full object-cover bg-deep-teal cursor-pointer" src="./assets/DrNaderYoussef.mp4" poster="./assets/DrNaderYoussef-poster-46s.webp" playsinline preload="none"></video><!-- Decorative grid pattern -->
         <div class="absolute inset-0 opacity-10 pointer-events-none">
          <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg"><defs>
-           <pattern id="grid" width="40" height="40" patternunits="userSpaceOnUse">
+           <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
             <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5" />
            </pattern>
           </defs> <rect width="100%" height="100%" fill="url(#grid)" />
          </svg>
         </div><!-- Play button -->
-        <div class="absolute inset-0 flex items-center justify-center pointer-events-none"><button class="video-play-btn w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-xl pointer-events-auto" aria-label="Play introduction video">
-          <svg class="w-8 h-8 text-deep-teal ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none"><button type="button" class="video-play-btn w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-xl pointer-events-auto" aria-label="Play introduction video">
+          <svg class="w-8 h-8 text-deep-teal ml-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
           </svg></button>
         </div>
        </div>
        <div class="mt-4 md:mt-5 bg-base rounded-xl border border-divider shadow-sm px-4 py-3 md:px-5 md:py-4">
         <div class="text-center max-w-2xl mx-auto">
-         <p class="text-xs uppercase tracking-widest text-text-muted mb-1 font-medium">Triple E Concept</p>
+         <p class="text-xs uppercase tracking-widest text-text-secondary mb-1 font-medium">Triple E Concept</p>
          <h2 class="font-display text-xl md:text-2xl font-semibold text-text-primary leading-snug">Empathetic Engagement Through Education.</h2>
         </div>
        </div>
@@ -296,7 +299,10 @@
      </div>
      <div class="mb-16 max-w-4xl mx-auto">
       <div class="aspect-video rounded-2xl overflow-hidden w-full">
-        <img src="./assets/ace.png" alt="How it works – ACE methodology" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+        <picture>
+          <source srcset="./assets/ace.webp" type="image/webp">
+          <img src="./assets/ACE.png" alt="How it works – ACE methodology" width="960" height="540" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+        </picture>
       </div>
       <div class="mt-6 flex justify-center">
        <a href="ace-framework.html" class="inline-flex items-center gap-2 px-6 py-3 bg-deep-teal text-white text-sm font-medium rounded-full hover:bg-teal-hover transition-all hover:shadow-lg">Learn more about the ACE Framework <span aria-hidden="true">→</span></a>
@@ -359,8 +365,8 @@
       <div class="group bg-base rounded-none overflow-hidden border border-divider hover:border-deep-teal/30 transition-all hover:shadow-lg">
        <div class="relative aspect-video bg-gradient-to-br from-deep-teal to-deep-teal/80 overflow-hidden cursor-pointer">
         <div class="absolute inset-0 flex items-center justify-center">
-         <button class="video-play-btn w-16 h-16 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-all">
-          <svg class="w-6 h-6 text-deep-teal ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+         <button type="button" class="video-play-btn w-16 h-16 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-all" aria-label="Play Patient-Centered Communication video">
+          <svg class="w-6 h-6 text-deep-teal ml-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
           </svg></button>
         </div>
         <div class="absolute top-3 left-3">
@@ -380,8 +386,8 @@
       <div class="group bg-base rounded-none overflow-hidden border border-divider hover:border-deep-teal/30 transition-all hover:shadow-lg">
        <div class="relative aspect-video bg-gradient-to-br from-deep-teal/70 to-deep-teal/90 overflow-hidden cursor-pointer">
         <div class="absolute inset-0 flex items-center justify-center">
-         <button class="video-play-btn w-16 h-16 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-all">
-          <svg class="w-6 h-6 text-deep-teal ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+         <button type="button" class="video-play-btn w-16 h-16 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-all" aria-label="Play Pharma Study Design with Patients video">
+          <svg class="w-6 h-6 text-deep-teal ml-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
           </svg></button>
         </div>
         <div class="absolute top-3 left-3">
@@ -401,8 +407,8 @@
       <div class="group bg-base rounded-none overflow-hidden border border-divider hover:border-deep-teal/30 transition-all hover:shadow-lg">
        <div class="relative aspect-video bg-gradient-to-br from-deep-teal to-deep-teal/80 overflow-hidden cursor-pointer">
         <div class="absolute inset-0 flex items-center justify-center">
-         <button class="video-play-btn w-16 h-16 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-all">
-          <svg class="w-6 h-6 text-deep-teal ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+         <button type="button" class="video-play-btn w-16 h-16 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-all" aria-label="Play Provider Training in Action video">
+          <svg class="w-6 h-6 text-deep-teal ml-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
           </svg></button>
         </div>
         <div class="absolute top-3 left-3">
@@ -421,14 +427,15 @@
       </div>
      </div>
     </div>
-   </section><!-- ============================================ --> <!-- SECTION 7: FOOTER --> <!-- ============================================ -->
+   </section>
+    </main><!-- ============================================ --> <!-- SECTION 7: FOOTER --> <!-- ============================================ -->
    <footer class="bg-deep-teal text-white relative overflow-hidden">
     <div class="absolute inset-0 pattern-overlay opacity-10"></div>
     <div class="relative max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
      <div class="grid md:grid-cols-4 gap-12 mb-12">
       <!-- Brand Column -->
       <div>
-       <img src="assets/Logo/1.png" alt="Unique Pharma Consulting. Navigating Strategy. Centered on Patients." class="h-[8.25rem] sm:h-[9rem] w-auto max-w-[min(100%,840px)] object-contain object-left mb-4" loading="lazy" decoding="async" />
+       <img src="assets/Logo/1.png" alt="Unique Pharma Consulting. Navigating Strategy. Centered on Patients." width="840" height="144" class="h-[8.25rem] sm:h-[9rem] w-auto max-w-[min(100%,840px)] object-contain object-left mb-4" loading="lazy" decoding="async" />
        <p class="text-white/80 text-sm leading-relaxed">Healthcare consultant, patient advocate, and champion of empathetic engagement.</p>
       </div><!-- Quick Links -->
       <div class="md:pl-8">
