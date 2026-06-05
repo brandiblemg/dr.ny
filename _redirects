@@ -1,0 +1,9 @@
+# Canonical host: https://consultdrnader.com
+http://consultdrnader.com/*              https://consultdrnader.com/:splat              301!
+http://www.consultdrnader.com/*          https://consultdrnader.com/:splat              301!
+https://www.consultdrnader.com/*         https://consultdrnader.com/:splat              301!
+http://consultdryoussef.com/*            https://consultdrnader.com/:splat              301!
+http://www.consultdryoussef.com/*        https://consultdrnader.com/:splat              301!
+https://consultdryoussef.com/*           https://consultdrnader.com/:splat              301!
+https://www.consultdryoussef.com/*       https://consultdrnader.com/:splat              301!
+https://drny.netlify.app/*               https://consultdrnader.com/:splat              301!

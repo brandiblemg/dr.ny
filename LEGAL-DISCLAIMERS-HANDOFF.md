@@ -4,6 +4,20 @@
 
 ---
 
+## Domains & canonical URL
+
+| Role | Domain |
+|------|--------|
+| **Primary (canonical)** | `https://consultdrnader.com` |
+| **Aliases** | `consultdryoussef.com`, `www.*` (redirect to primary) |
+| **Netlify subdomain** | `drny.netlify.app` (redirects to primary via `_redirects`) |
+
+SEO assets use the primary domain: `robots.txt`, `sitemap.xml`, canonical tags, and Open Graph URLs on every page. Reference constant: `assets/site-config.js`.
+
+**Launch ops (Section B):** See **`LAUNCH-OPS-B.md`** for Netlify/Cloudflare, Chatbase, Calendly, Search Console, and GA4 steps. Run `./scripts/verify-launch.sh` after deploy.
+
+---
+
 ## What is live on the website
 
 | Item | Location |
@@ -15,7 +29,8 @@
 | **Home hero** | Short disclaimer + metaphor footnote on “Medicine” headline |
 | **Patient Advocacy** | Prominent services disclaimer box; softened clinical phrasing |
 | **BioPharma Consultation & Leadership Coaching** | Services disclaimer in Overview |
-| **Schedule & Contact** | “Before you schedule / reach out” prominent notices |
+| **Schedule & Contact** | Subtle disclaimer copy; closable popup on high-intent pages |
+| **Home + service + schedule + contact** | Bottom-left “Professional services only” popup (closable) |
 | **Resources** | Page-level educational-resources-only notice |
 | **About** | Non-clinical consulting practice line + link |
 | **Navigation / primary CTAs** | “Schedule a Conversation” (replacing “Schedule Consultation” where applicable) |
@@ -64,5 +79,5 @@ The following pages include an explicit note: *Draft language—pending review a
 
 ## Files changed (summary)
 
-- **New:** `professional-services-disclaimer.html`, `LEGAL-DISCLAIMERS-HANDOFF.md`
-- **Updated:** All `*.html` pages, `assets/css/styles.css` (`.legal-notice` styles), `assets/js/main.js` (patient service copy)
+- **New:** `professional-services-disclaimer.html`, `LEGAL-DISCLAIMERS-HANDOFF.md`, `robots.txt`, `sitemap.xml`, `_redirects`, `assets/site-config.js`
+- **Updated:** All `*.html` pages (SEO meta, canonical URLs), `assets/css/styles.css`, `assets/js/main.js`

@@ -619,6 +619,38 @@ if (heroVideo && heroPlayBtn) {
   });
 }
 
+// Google Search Console verification meta (when configured in site-config.js)
+(function initSearchConsoleVerification() {
+  const config = window.SITE_CONFIG || {};
+  const token = config.googleSiteVerification;
+  if (!token || typeof token !== "string") return;
+  if (document.querySelector('meta[name="google-site-verification"]')) return;
+  const meta = document.createElement("meta");
+  meta.name = "google-site-verification";
+  meta.content = token;
+  document.head.appendChild(meta);
+})();
+
+// Google Analytics 4 (when gaMeasurementId is set in site-config.js)
+(function initAnalytics() {
+  const config = window.SITE_CONFIG || {};
+  const id = config.gaMeasurementId;
+  if (!id || typeof id !== "string" || id.includes("XXXX")) return;
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
+  window.gtag = gtag;
+  gtag("js", new Date());
+  gtag("config", id, { anonymize_ip: true });
+
+  const script = document.createElement("script");
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(id)}`;
+  document.head.appendChild(script);
+})();
+
 // Homepage professional-services popup (bottom-left, closable)
 (function initDisclaimerPopup() {
   const popup = document.getElementById("disclaimer-popup");
@@ -637,8 +669,18 @@ if (heroVideo && heroPlayBtn) {
   });
 })();
 
-// Chatbase widget embed (site-wide)
+// Chatbase widget embed (site-wide) — allowlist hosts in Chatbase dashboard (see site-config.js)
 (function initChatbase() {
+  const config = window.SITE_CONFIG || {};
+  const host = window.location.hostname;
+  const allowed = config.chatbaseAllowedHosts;
+  if (Array.isArray(allowed) && allowed.length && !allowed.includes(host)) {
+    console.warn(
+      `[Chatbase] Host "${host}" may need to be added to the Chatbase dashboard allowlist.`,
+      allowed
+    );
+  }
+
   if (typeof window.chatbase === "function" && window.chatbase("getState") === "initialized") {
     return;
   }
