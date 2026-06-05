@@ -651,25 +651,66 @@ if (heroVideo && heroPlayBtn) {
   document.head.appendChild(script);
 })();
 
-// Homepage professional-services popup (bottom-left, closable)
+// Professional-services popup (bottom-left, closable)
 (function initDisclaimerPopup() {
   const popup = document.getElementById("disclaimer-popup");
   const closeBtn = document.getElementById("disclaimer-popup-close");
   if (!popup || !closeBtn) return;
 
   const storageKey = "drny-disclaimer-dismissed";
+  let lastFocused = null;
+
+  const getFocusable = () =>
+    Array.from(
+      popup.querySelectorAll(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )
+    ).filter((el) => !el.hasAttribute("disabled") && el.offsetParent !== null);
+
+  const closePopup = () => {
+    popup.classList.add("is-dismissed");
+    localStorage.setItem(storageKey, "1");
+    document.removeEventListener("keydown", onKeyDown);
+    if (lastFocused && typeof lastFocused.focus === "function") {
+      lastFocused.focus();
+    }
+  };
+
+  const onKeyDown = (e) => {
+    if (e.key === "Escape") {
+      closePopup();
+      return;
+    }
+    if (e.key !== "Tab") return;
+
+    const focusable = getFocusable();
+    if (!focusable.length) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  };
+
   if (localStorage.getItem(storageKey) === "1") {
     popup.classList.add("is-dismissed");
     return;
   }
 
-  closeBtn.addEventListener("click", () => {
-    popup.classList.add("is-dismissed");
-    localStorage.setItem(storageKey, "1");
-  });
+  lastFocused = document.activeElement;
+  document.addEventListener("keydown", onKeyDown);
+  closeBtn.focus();
+
+  closeBtn.addEventListener("click", closePopup);
 })();
 
-// Chatbase widget embed (site-wide) — allowlist hosts in Chatbase dashboard (see site-config.js)
+// Chatbase widget embed (site-wide) — deferred until scroll or click (see site-config.js)
 (function initChatbase() {
   const config = window.SITE_CONFIG || {};
   const host = window.location.hostname;
@@ -681,25 +722,32 @@ if (heroVideo && heroPlayBtn) {
     );
   }
 
-  if (typeof window.chatbase === "function" && window.chatbase("getState") === "initialized") {
-    return;
-  }
+  let loaded = false;
 
-  window.chatbase =
-    window.chatbase ||
-    function (...args) {
-      window.chatbase.q = window.chatbase.q || [];
-      window.chatbase.q.push(args);
-    };
+  const loadChatbase = () => {
+    if (loaded) return;
+    loaded = true;
+    window.removeEventListener("scroll", onScroll);
+    document.removeEventListener("click", loadChatbase, true);
 
-  window.chatbase = new Proxy(window.chatbase, {
-    get(target, prop) {
-      if (prop === "q") return target.q;
-      return (...args) => target(prop, ...args);
+    if (typeof window.chatbase === "function" && window.chatbase("getState") === "initialized") {
+      return;
     }
-  });
 
-  const onLoad = function () {
+    window.chatbase =
+      window.chatbase ||
+      function (...args) {
+        window.chatbase.q = window.chatbase.q || [];
+        window.chatbase.q.push(args);
+      };
+
+    window.chatbase = new Proxy(window.chatbase, {
+      get(target, prop) {
+        if (prop === "q") return target.q;
+        return (...args) => target(prop, ...args);
+      }
+    });
+
     const script = document.createElement("script");
     script.src = "https://www.chatbase.co/embed.min.js";
     script.id = "TMOu-Vsbt3FrIw11bhSL2";
@@ -707,10 +755,13 @@ if (heroVideo && heroPlayBtn) {
     document.body.appendChild(script);
   };
 
-  if (document.readyState === "complete") {
-    onLoad();
-  } else {
-    window.addEventListener("load", onLoad);
-  }
+  const onScroll = () => {
+    if (window.scrollY >= 300) {
+      loadChatbase();
+    }
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  document.addEventListener("click", loadChatbase, true);
 })();
 

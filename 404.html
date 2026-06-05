@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="assets/Logo/1.png">
+  <link rel="apple-touch-icon" href="assets/Logo/1.png">
+  <meta name="robots" content="noindex">
+  <title>Page Not Found | Dr. Nader Youssef</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'base': '#F7F6F2', 'base-alt': '#F2F0EB', 'deep-teal': '#1F3E5A', 'teal-hover': '#163149',
+            'accent-sand': '#E5E2DA', 'sand-light': '#F0ECE4', 'accent-sage': '#7E9C8C', 'sage-light': '#9EB4A5',
+            'warm-sand': '#FFFFFF', 'text-primary': '#2A2A2A', 'text-secondary': '#515151', 'text-muted': '#7A7A7A', 'divider': '#E5E0D8'
+          },
+          fontFamily: { 'display': ['Playfair Display', 'Georgia', 'serif'], 'body': ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="h-full bg-base font-body text-text-primary overflow-auto smooth-scroll">
+  <div class="w-full min-h-full">
+    <header id="main-header" class="navbar">
+      <div class="navbar__container">
+        <a href="index.html" class="navbar__brand">
+          <span class="navbar__logo-wrap"><img src="assets/Logo/1.png" alt="Dr. Youssef logo" width="60" height="60" class="navbar__logo" fetchpriority="high" /></span>
+          <span class="navbar__title">Dr. Youssef</span>
+        </a>
+        <button type="button" class="navbar__toggle" id="mobile-menu-btn" aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false">
+          <span class="navbar__toggle-bar" aria-hidden="true"></span>
+          <span class="navbar__toggle-bar" aria-hidden="true"></span>
+          <span class="navbar__toggle-bar" aria-hidden="true"></span>
+        </button>
+        <nav class="navbar__menu" id="primary-navigation" role="navigation" aria-label="Primary">
+          <ul class="navbar__list">
+            <li class="navbar__item">
+              <a href="healthcare-consultation.html" class="navbar__link">BioPharma Consultation</a>
+            </li>
+            <li class="navbar__item">
+              <a href="patient-advocacy.html" class="navbar__link">Patient Advocacy</a>
+            </li>
+            <li class="navbar__item">
+              <a href="education.html" class="navbar__link">Leadership Coaching</a>
+            </li>
+            <li class="navbar__item">
+              <a href="ace-framework.html" class="navbar__link">ACE Framework</a>
+            </li>
+            <li class="navbar__item">
+              <a href="schedule.html" class="navbar__link navbar__link--cta">Schedule a Conversation</a>
+            </li>
+            <li class="navbar__item navbar__item--dropdown nav-more-wrap">
+              <button type="button" class="navbar__link navbar__link--dropdown nav-more-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-more-menu">
+                See More
+                <svg class="nav-more-chevron w-4 h-4 shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div id="nav-more-menu" class="nav-more-panel navbar__dropdown-panel hidden absolute left-1/2 top-full z-[70] mt-2 w-[min(100vw-2rem,16rem)] -translate-x-1/2 rounded-xl border border-divider bg-white py-2 shadow-xl" role="menu" aria-label="More pages">
+                <a href="case-studies.html" class="block px-4 py-2.5 text-sm font-medium text-text-primary hover:bg-base-alt hover:text-deep-teal transition-colors" role="menuitem">Case Studies</a>
+                <a href="resources.html" class="block px-4 py-2.5 text-sm font-medium text-text-primary hover:bg-base-alt hover:text-deep-teal transition-colors" role="menuitem">Resources</a>
+                <a href="about.html" class="block px-4 py-2.5 text-sm font-medium text-text-primary hover:bg-base-alt hover:text-deep-teal transition-colors" role="menuitem">Dr. Youssef Bio</a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="pt-28 pb-14 lg:pt-32 lg:pb-20 relative min-h-[50vh]">
+      <div class="absolute inset-0 pattern-overlay opacity-30"></div>
+      <div class="relative max-w-2xl mx-auto px-6 lg:px-8 text-center">
+        <p class="text-6xl font-display font-semibold text-deep-teal/20 mb-4" aria-hidden="true">404</p>
+        <h1 class="font-display text-3xl lg:text-4xl font-semibold text-text-primary mb-4">Page Not Found</h1>
+        <p class="text-lg text-text-secondary mb-10 leading-relaxed">The page you’re looking for doesn’t exist or may have moved. You can return home or schedule a conversation with Dr. Youssef.</p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="index.html" class="inline-flex items-center gap-3 px-8 py-4 bg-deep-teal text-white font-medium rounded-full hover:bg-teal-hover transition-all hover:shadow-xl">Back to Home</a>
+          <a href="schedule.html" class="inline-flex items-center gap-2 text-deep-teal font-medium hover:text-teal-hover transition-colors">Schedule a Conversation <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-deep-teal text-white relative overflow-hidden">
+      <div class="absolute inset-0 pattern-overlay opacity-10"></div>
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
+        <div class="border-t border-white/10 pt-8 text-center text-sm text-white/80 space-y-3">
+          <p class="text-white/75 max-w-3xl mx-auto leading-relaxed px-2">Educational and consulting services only—not medical advice, diagnosis, or treatment. <a href="professional-services-disclaimer.html" class="underline hover:text-white transition-colors">Full disclaimer</a></p>
+          <p>© 2026 Dr. Nader Youssef. All rights reserved. | <a href="privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a> | <a href="terms-of-service.html" class="hover:text-white transition-colors">Terms of Service</a> | <a href="professional-services-disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a></p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="./assets/site-config.js"></script>
+  <script src="./assets/js/main.js" defer></script>
+</body>
+</html>

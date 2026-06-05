@@ -7,3 +7,8 @@ http://www.consultdryoussef.com/*        https://consultdrnader.com/:splat      
 https://consultdryoussef.com/*           https://consultdrnader.com/:splat              301!
 https://www.consultdryoussef.com/*       https://consultdrnader.com/:splat              301!
 https://drny.netlify.app/*               https://consultdrnader.com/:splat              301!
+
+# Block internal documentation from public access
+/TODO.md                                 /404                                           404
+/LAUNCH-OPS-B.md                         /404                                           404
+/LEGAL-DISCLAIMERS-HANDOFF.md            /404                                           404
