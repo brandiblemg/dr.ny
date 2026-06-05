@@ -371,23 +371,25 @@ body {
   .navbar__item,
   .navbar__item--dropdown {
     border: none;
-    flex: 0 0 8.5rem;
-    width: 8.5rem;
+    flex: 0 0 11.5rem;
+    width: 11.5rem;
     display: flex;
     align-items: stretch;
     justify-content: center;
   }
 
   .navbar__link {
-    padding: 0.35rem 0.25rem;
+    padding: 0.5rem 0.35rem;
+    font-size: 0.8125rem;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 3rem;
-    min-height: 3rem;
+    height: 2.75rem;
+    min-height: 2.75rem;
     width: 100%;
     box-sizing: border-box;
+    white-space: nowrap;
   }
 
   .navbar__link--dropdown {
@@ -398,16 +400,14 @@ body {
   }
 
   .navbar__link--multiline {
-    flex-direction: column;
-    gap: 0.05rem;
-    line-height: 1.05;
-    padding-block: 0.3rem;
+    max-width: none;
+    padding-inline: 0.35rem;
   }
 
   a.navbar__link--active,
   a.navbar__link[aria-current="page"] {
     border-bottom: 2px solid #fff;
-    padding-bottom: calc(0.3rem - 2px);
+    padding-bottom: calc(0.5rem - 2px);
   }
 
   .nav-more-panel.navbar__dropdown-panel {
