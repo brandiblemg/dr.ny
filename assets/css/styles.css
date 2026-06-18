@@ -664,88 +664,154 @@ body {
   color: #163149;
 }
 
-/* Homepage / sitewide professional-services popup (bottom-left) */
-.disclaimer-popup {
-  position: fixed;
-  bottom: 1.25rem;
-  left: 1.25rem;
-  z-index: 45;
-  width: min(100vw - 2.5rem, 22rem);
-  padding: 1rem;
-  border-radius: 0.75rem;
-  border: 1px solid rgba(31, 62, 90, 0.12);
-  background: rgba(255, 255, 255, 0.97);
-  box-shadow: 0 4px 24px rgba(31, 62, 90, 0.12);
-  font-size: 0.8125rem;
-  line-height: 1.55;
-  color: #515151;
-  backdrop-filter: blur(8px);
-  animation: disclaimer-popup-in 0.4s ease-out;
+/* Sitewide professional-services gate (centered modal, blocks access until acknowledged) */
+body.disclaimer-gate-open {
+  overflow: hidden;
 }
 
-.disclaimer-popup.is-dismissed {
+.disclaimer-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(31, 62, 90, 0.62);
+  backdrop-filter: blur(6px);
+  animation: disclaimer-gate-in 0.25s ease-out;
+}
+
+.disclaimer-gate.is-dismissed {
   display: none;
 }
 
-.disclaimer-popup__title {
+.disclaimer-gate__panel {
+  width: min(100%, 32rem);
+  padding: 2rem 2rem 1.75rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(31, 62, 90, 0.14);
+  background: #fff;
+  box-shadow: 0 24px 64px rgba(31, 62, 90, 0.28);
+  text-align: center;
+  animation: disclaimer-gate-panel-in 0.35s ease-out;
+}
+
+.disclaimer-gate__title {
+  margin: 0 0 1rem;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.5rem;
   font-weight: 600;
-  font-size: 0.8125rem;
-  color: #2a2a2a;
-  margin: 0 0 0.35rem;
+  line-height: 1.25;
+  color: #1f3e5a;
 }
 
-.disclaimer-popup__body {
+.disclaimer-gate__body {
   margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: #515151;
+  text-align: left;
 }
 
-.disclaimer-popup__body a {
+.disclaimer-gate__body a {
   color: #1f3e5a;
   font-weight: 500;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
-.disclaimer-popup__body a:hover {
+.disclaimer-gate__body a:hover {
   color: #163149;
 }
 
-.disclaimer-popup__acknowledge {
-  display: block;
+.disclaimer-gate__actions {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.disclaimer-gate__acknowledge,
+.disclaimer-gate__decline {
   width: 100%;
-  margin-top: 0.75rem;
-  padding: 0.5rem 1rem;
-  border: none;
+  padding: 0.875rem 1.25rem;
   border-radius: 9999px;
-  background: #1f3e5a;
-  color: #fff;
-  font-size: 0.8125rem;
-  font-weight: 500;
+  font-size: 0.9375rem;
+  font-weight: 600;
   font-family: inherit;
   cursor: pointer;
-  transition: background-color 0.15s;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
 }
 
-.disclaimer-popup__acknowledge:hover {
+.disclaimer-gate__acknowledge {
+  border: 2px solid #1f3e5a;
+  background: #1f3e5a;
+  color: #fff;
+}
+
+.disclaimer-gate__acknowledge:hover {
   background: #163149;
+  border-color: #163149;
 }
 
-@keyframes disclaimer-popup-in {
+.disclaimer-gate__decline {
+  border: 2px solid #d5d0c8;
+  background: transparent;
+  color: #515151;
+}
+
+.disclaimer-gate__decline:hover {
+  border-color: #b8b2a8;
+  color: #2a2a2a;
+}
+
+@keyframes disclaimer-gate-in {
   from {
     opacity: 0;
-    transform: translateY(0.5rem);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+  }
+}
+
+@keyframes disclaimer-gate-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (min-width: 480px) {
+  .disclaimer-gate__actions {
+    flex-direction: row;
+  }
+
+  .disclaimer-gate__acknowledge,
+  .disclaimer-gate__decline {
+    flex: 1;
   }
 }
 
 @media (max-width: 640px) {
-  .disclaimer-popup {
-    bottom: 1rem;
-    left: 1rem;
-    width: min(100vw - 2rem, 20rem);
-    font-size: 0.75rem;
+  .disclaimer-gate {
+    padding: 1rem;
+  }
+
+  .disclaimer-gate__panel {
+    padding: 1.5rem 1.25rem 1.25rem;
+  }
+
+  .disclaimer-gate__title {
+    font-size: 1.25rem;
+  }
+
+  .disclaimer-gate__body {
+    font-size: 0.875rem;
   }
 }
 

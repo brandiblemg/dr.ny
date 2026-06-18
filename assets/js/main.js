@@ -673,11 +673,12 @@ if (heroVideo && heroPlayBtn) {
   closeBtn.addEventListener("click", dismiss);
 })();
 
-// Professional-services popup (bottom-left, sitewide — Acknowledged to dismiss)
+// Professional-services gate (centered modal, sitewide — must acknowledge to access site)
 (function initDisclaimerPopup() {
   const popup = document.getElementById("disclaimer-popup");
   const acknowledgeBtn = document.getElementById("disclaimer-popup-acknowledge");
-  if (!popup || !acknowledgeBtn) return;
+  const declineBtn = document.getElementById("disclaimer-popup-decline");
+  if (!popup || !acknowledgeBtn || !declineBtn) return;
 
   const storageKey = "drny-disclaimer-dismissed";
   localStorage.removeItem(storageKey);
@@ -690,8 +691,9 @@ if (heroVideo && heroPlayBtn) {
       )
     ).filter((el) => !el.hasAttribute("disabled") && el.offsetParent !== null);
 
-  const dismissPopup = () => {
+  const unlockSite = () => {
     popup.classList.add("is-dismissed");
+    document.body.classList.remove("disclaimer-gate-open");
     sessionStorage.setItem(storageKey, "1");
     document.removeEventListener("keydown", onKeyDown);
     if (lastFocused && typeof lastFocused.focus === "function") {
@@ -700,6 +702,11 @@ if (heroVideo && heroPlayBtn) {
   };
 
   const onKeyDown = (e) => {
+    if (e.key === "Escape") {
+      e.preventDefault();
+      return;
+    }
+
     if (e.key !== "Tab") return;
 
     const focusable = getFocusable();
@@ -722,11 +729,15 @@ if (heroVideo && heroPlayBtn) {
     return;
   }
 
+  document.body.classList.add("disclaimer-gate-open");
   lastFocused = document.activeElement;
   document.addEventListener("keydown", onKeyDown);
   acknowledgeBtn.focus();
 
-  acknowledgeBtn.addEventListener("click", dismissPopup);
+  acknowledgeBtn.addEventListener("click", unlockSite);
+  declineBtn.addEventListener("click", () => {
+    window.location.href = "https://www.google.com/";
+  });
 })();
 
 // Chatbase widget embed (site-wide) — deferred until scroll or click; persists for session

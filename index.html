@@ -478,11 +478,16 @@
     </div>
    </footer>
   </div>
-  <aside id="disclaimer-popup" class="disclaimer-popup" role="dialog" aria-modal="true" aria-label="Professional services notice" aria-live="polite">
-    <p class="disclaimer-popup__title">Professional services only</p>
-    <p class="disclaimer-popup__body">Dr. Youssef provides advocacy, education, communication support, and consulting services. He does not provide medical advice as a treating physician. <a href="professional-services-disclaimer.html">Full disclaimer</a></p>
-    <button type="button" class="disclaimer-popup__acknowledge" id="disclaimer-popup-acknowledge">Acknowledged</button>
-  </aside>
+  <div id="disclaimer-popup" class="disclaimer-gate" role="dialog" aria-modal="true" aria-labelledby="disclaimer-popup-title" aria-describedby="disclaimer-popup-body">
+    <div class="disclaimer-gate__panel">
+      <p id="disclaimer-popup-title" class="disclaimer-gate__title">Professional services only</p>
+      <p id="disclaimer-popup-body" class="disclaimer-gate__body">Before continuing, please confirm you understand that Dr. Youssef provides advocacy, education, communication support, and consulting services only. He does not provide medical advice, diagnosis, or treatment as a treating physician through this website. <a href="professional-services-disclaimer.html">Read full disclaimer</a></p>
+      <div class="disclaimer-gate__actions">
+        <button type="button" class="disclaimer-gate__acknowledge" id="disclaimer-popup-acknowledge">I Acknowledge</button>
+        <button type="button" class="disclaimer-gate__decline" id="disclaimer-popup-decline">No, Leave Site</button>
+      </div>
+    </div>
+  </div>
   <script src="./assets/site-config.js"></script>
   <script src="./assets/js/main.js" defer></script>
 </body>
