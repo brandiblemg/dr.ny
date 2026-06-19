@@ -588,36 +588,77 @@ if (aceDiagram) {
   activateSegment(initialKey);
 }
 
-// Hero video play button (index.html)
-const heroVideo = document.getElementById("hero-video");
-const heroPlayBtn = document.querySelector(".video-play-btn");
+// Click-to-play video sections (hero + journey overview on index.html)
+function setVideoPosterFromFrame(video, time = 0.5) {
+  if (!video || video.getAttribute("poster")) return;
 
-if (heroVideo && heroPlayBtn) {
-  heroPlayBtn.addEventListener("click", (e) => {
+  const capture = () => {
+    if (!video.videoWidth) return;
+    const canvas = document.createElement("canvas");
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    try {
+      video.setAttribute("poster", canvas.toDataURL("image/jpeg", 0.85));
+    } catch (_) {
+      /* ignore canvas export issues */
+    }
+    video.pause();
+    video.currentTime = 0;
+  };
+
+  const seekAndCapture = () => {
+    const onSeeked = () => {
+      capture();
+      video.removeEventListener("seeked", onSeeked);
+    };
+    video.addEventListener("seeked", onSeeked);
+    video.currentTime = Math.min(time, video.duration || time);
+  };
+
+  if (video.readyState >= 1) seekAndCapture();
+  else video.addEventListener("loadedmetadata", seekAndCapture, { once: true });
+}
+
+function initClickToPlayVideo(sectionId, videoId, options = {}) {
+  const section = document.getElementById(sectionId);
+  const video = document.getElementById(videoId);
+  const playBtn = section?.querySelector(".video-play-btn");
+  if (!video || !playBtn) return;
+
+  if (options.capturePoster) {
+    setVideoPosterFromFrame(video, options.posterTime);
+  }
+
+  const togglePlay = () => {
+    if (video.paused) {
+      video.play();
+      playBtn.classList.add("opacity-0", "pointer-events-none");
+    } else {
+      video.pause();
+      playBtn.classList.remove("opacity-0", "pointer-events-none");
+    }
+  };
+
+  playBtn.addEventListener("click", (e) => {
     e.stopPropagation();
-    if (heroVideo.paused) {
-      heroVideo.play();
-      heroPlayBtn.classList.add("opacity-0", "pointer-events-none");
-    } else {
-      heroVideo.pause();
-      heroPlayBtn.classList.remove("opacity-0", "pointer-events-none");
-    }
+    togglePlay();
   });
 
-  heroVideo.addEventListener("click", () => {
-    if (heroVideo.paused) {
-      heroVideo.play();
-      heroPlayBtn.classList.add("opacity-0", "pointer-events-none");
-    } else {
-      heroVideo.pause();
-      heroPlayBtn.classList.remove("opacity-0", "pointer-events-none");
-    }
-  });
+  video.addEventListener("click", togglePlay);
 
-  heroVideo.addEventListener("ended", () => {
-    heroPlayBtn.classList.remove("opacity-0", "pointer-events-none");
+  video.addEventListener("ended", () => {
+    playBtn.classList.remove("opacity-0", "pointer-events-none");
   });
 }
+
+initClickToPlayVideo("video-section", "hero-video");
+initClickToPlayVideo("journey-overview-section", "journey-overview-video", {
+  capturePoster: true,
+  posterTime: 1,
+});
 
 // Google Search Console verification meta (when configured in site-config.js)
 (function initSearchConsoleVerification() {
@@ -649,6 +690,16 @@ if (heroVideo && heroPlayBtn) {
   script.async = true;
   script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(id)}`;
   document.head.appendChild(script);
+})();
+
+// Schedule page — show Netlify form success message after redirect
+(function initConversationFormSuccess() {
+  const banner = document.getElementById("conversation-form-success");
+  if (!banner) return;
+  if (new URLSearchParams(window.location.search).get("submitted") === "1") {
+    banner.classList.remove("hidden");
+    banner.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
 })();
 
 // Resources page — educational notice (full-width, closable)
