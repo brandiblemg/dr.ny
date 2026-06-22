@@ -628,37 +628,45 @@ function initClickToPlayVideo(sectionId, videoId, options = {}) {
   const playBtn = section?.querySelector(".video-play-btn");
   if (!video || !playBtn) return;
 
-  if (options.capturePoster) {
-    setVideoPosterFromFrame(video, options.posterTime);
+  const hasControls = video.hasAttribute("controls");
+
+  if (options.capturePoster && !video.getAttribute("poster")) {
+    setVideoPosterFromFrame(video, options.posterTime ?? 0.5);
   }
 
-  const togglePlay = () => {
-    if (video.paused) {
-      video.play();
-      playBtn.classList.add("opacity-0", "pointer-events-none");
-    } else {
-      video.pause();
-      playBtn.classList.remove("opacity-0", "pointer-events-none");
-    }
+  const showPlayBtn = () => {
+    playBtn.classList.remove("opacity-0", "pointer-events-none");
+  };
+
+  const hidePlayBtn = () => {
+    playBtn.classList.add("opacity-0", "pointer-events-none");
+  };
+
+  const startPlay = () => {
+    video.play();
+    hidePlayBtn();
   };
 
   playBtn.addEventListener("click", (e) => {
     e.stopPropagation();
-    togglePlay();
+    if (video.paused) startPlay();
+    else video.pause();
   });
 
-  video.addEventListener("click", togglePlay);
+  if (!hasControls) {
+    video.addEventListener("click", () => {
+      if (video.paused) startPlay();
+      else video.pause();
+    });
+  }
 
-  video.addEventListener("ended", () => {
-    playBtn.classList.remove("opacity-0", "pointer-events-none");
-  });
+  video.addEventListener("play", hidePlayBtn);
+  video.addEventListener("pause", showPlayBtn);
+  video.addEventListener("ended", showPlayBtn);
 }
 
 initClickToPlayVideo("video-section", "hero-video");
-initClickToPlayVideo("journey-overview-section", "journey-overview-video", {
-  capturePoster: true,
-  posterTime: 1,
-});
+initClickToPlayVideo("journey-overview-section", "journey-overview-video");
 
 // Google Search Console verification meta (when configured in site-config.js)
 (function initSearchConsoleVerification() {

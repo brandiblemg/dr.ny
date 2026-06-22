@@ -463,6 +463,18 @@ body {
   box-shadow: 0 0 0 12px rgba(26, 58, 58, 0.1);
 }
 
+.video-player-wrap video {
+  display: block;
+}
+
+.video-player-wrap video::-webkit-media-controls-enclosure {
+  border-radius: 0;
+}
+
+.video-player-wrap .video-play-btn {
+  z-index: 2;
+}
+
 .ace-pillar {
   transition: all 0.3s ease;
 }
