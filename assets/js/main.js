@@ -233,7 +233,7 @@ if (serviceFinder) {
     pharma: {
       title: "Pharmaceutical Consulting",
       body:
-        "Study design with patient-centered outcomes. We work with patient groups and KOLs to shape meaningful protocols—e.g. daily function measures (like a child’s ability to self-feed), compassionate study design, and educating pharma partners on real patient priorities. Example: Pediatric Brain Tumor Society collaboration."
+        "Study design with patient-centered outcomes. We work with patient groups and KOLs to shape meaningful protocols—e.g. daily function measures (like a child’s ability to self-feed), compassionate study design, and educating pharma partners on real patient priorities. Example: Pediatric Intestinal Failure Society collaboration."
     },
     provider: {
       title: "Healthcare Provider Training",
