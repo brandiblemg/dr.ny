@@ -662,6 +662,16 @@ body {
   color: #163149;
 }
 
+.about-lesson-lead {
+  white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  .about-lesson-lead {
+    white-space: normal;
+  }
+}
+
 /* Sitewide professional-services gate (centered modal, blocks access until acknowledged) */
 body.disclaimer-gate-open {
   overflow: hidden;
