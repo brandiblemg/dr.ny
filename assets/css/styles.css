@@ -182,20 +182,6 @@ body {
   display: block;
 }
 
-.navbar__title {
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #fff;
-  display: none;
-}
-
-@media (min-width: 640px) {
-  .navbar__title {
-    display: block;
-  }
-}
-
 .navbar__toggle {
   display: flex;
   flex-direction: column;

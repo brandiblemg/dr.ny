@@ -58,7 +58,6 @@
       <div class="navbar__container">
         <a href="index.html" class="navbar__brand">
           <span class="navbar__logo-wrap"><img src="assets/Logo/1.png" alt="Dr. Youssef logo" width="60" height="60" class="navbar__logo" loading="lazy" decoding="async" /></span>
-          <span class="navbar__title">Dr. Youssef</span>
         </a>
         <button type="button" class="navbar__toggle" id="mobile-menu-btn" aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false">
           <span class="navbar__toggle-bar" aria-hidden="true"></span>
@@ -82,18 +81,8 @@
             <li class="navbar__item">
               <a href="schedule.html" class="navbar__link navbar__link--cta">Schedule a Conversation</a>
             </li>
-            <li class="navbar__item navbar__item--dropdown nav-more-wrap">
-              <button type="button" class="navbar__link navbar__link--dropdown nav-more-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-more-menu">
-                Message From Dr. Youssef
-                <svg class="nav-more-chevron w-4 h-4 shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              <div id="nav-more-menu" class="nav-more-panel navbar__dropdown-panel hidden absolute left-1/2 top-full z-[70] mt-2 w-[min(100vw-2rem,16rem)] -translate-x-1/2 rounded-xl border border-divider bg-white py-2 shadow-xl" role="menu" aria-label="More pages">
-                <a href="case-studies.html" class="block px-4 py-2.5 text-sm font-medium text-text-primary hover:bg-base-alt hover:text-deep-teal transition-colors" role="menuitem">Case Studies</a>
-                <a href="resources.html" class="block px-4 py-2.5 text-sm font-medium text-text-primary hover:bg-base-alt hover:text-deep-teal transition-colors" role="menuitem">Resources</a>
-                <a href="about.html" class="block px-4 py-2.5 text-sm font-medium text-text-primary hover:bg-base-alt hover:text-deep-teal transition-colors" role="menuitem">Dr. Youssef Bio</a>
-              </div>
+                        <li class="navbar__item">
+              <a href="about.html" class="navbar__link navbar__link--active" aria-current="page">Message From Dr. Youssef</a>
             </li>
           </ul>
         </nav>
@@ -104,7 +93,7 @@
       <div class="absolute inset-0 pattern-overlay opacity-30"></div>
       <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div class="grid lg:grid-cols-3 gap-10 lg:gap-14 items-start mb-16 max-w-6xl mx-auto">
-          <div class="lg:col-span-1 flex justify-center lg:justify-start order-2 lg:order-1 pt-0 lg:pt-14">
+          <div class="lg:col-span-1 flex flex-col justify-center lg:justify-start order-2 lg:order-1 pt-0 lg:pt-14">
             <div id="about-hero-visual" class="aspect-[3/4] rounded-2xl overflow-hidden w-full max-w-md border border-divider shadow-sm bg-base-alt">
               <img
                 src="assets/DRNY.png"
@@ -115,11 +104,11 @@
                 fetchpriority="high"
               />
             </div>
+            <p class="text-sm text-text-muted mt-6 mb-4">Healthcare Consultant · Patient Advocate · Educator</p>
+            <p class="text-sm text-text-secondary border-l-2 border-deep-teal/25 pl-4">In his current consulting practice, Dr. Youssef provides non-clinical advocacy, education, communication support, and professional consulting—not medical diagnosis, treatment, or care as a treating physician. <a href="professional-services-disclaimer.html" class="text-deep-teal font-medium hover:text-teal-hover transition-colors">Full disclaimer</a></p>
           </div>
           <div class="lg:col-span-2 lg:pl-4 order-1 lg:order-2">
             <h1 class="font-display text-3xl lg:text-4xl font-semibold text-text-primary mb-4">Dr. Nader Youssef</h1>
-            <p class="text-sm text-text-muted mb-4">Healthcare Consultant · Patient Advocate · Educator</p>
-            <p class="text-sm text-text-secondary mb-8 border-l-2 border-deep-teal/25 pl-4">In his current consulting practice, Dr. Youssef provides non-clinical advocacy, education, communication support, and professional consulting—not medical diagnosis, treatment, or care as a treating physician. <a href="professional-services-disclaimer.html" class="text-deep-teal font-medium hover:text-teal-hover transition-colors">Full disclaimer</a></p>
             <h2 class="font-display text-2xl lg:text-3xl font-semibold text-text-primary mb-3">Message from Dr. Nader Youssef</h2>
             <p class="font-display text-xl text-deep-teal mb-8">Serving Patients. Advancing Innovation.</p>
             <div class="space-y-6 text-text-secondary leading-relaxed">
