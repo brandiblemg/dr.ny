@@ -740,7 +740,14 @@ initClickToPlayVideo("journey-overview-section", "journey-overview-video");
   if (!popup || !acknowledgeBtn || !declineBtn) return;
 
   const storageKey = "drny-disclaimer-dismissed";
-  localStorage.removeItem(storageKey);
+  const legalPages = [
+    "professional-services-disclaimer.html",
+    "privacy-policy.html",
+    "terms-of-service.html",
+  ];
+  const path = window.location.pathname || "";
+  const isLegalPage = legalPages.some((page) => path.endsWith(page));
+
   let lastFocused = null;
 
   const getFocusable = () =>
@@ -783,6 +790,13 @@ initClickToPlayVideo("journey-overview-section", "journey-overview-video");
     }
   };
 
+  // Allow reading legal pages without blocking the content behind the gate
+  if (isLegalPage) {
+    popup.classList.add("is-dismissed");
+    document.body.classList.remove("disclaimer-gate-open");
+    return;
+  }
+
   if (sessionStorage.getItem(storageKey) === "1") {
     popup.classList.add("is-dismissed");
     return;
@@ -796,6 +810,15 @@ initClickToPlayVideo("journey-overview-section", "journey-overview-video");
   acknowledgeBtn.addEventListener("click", unlockSite);
   declineBtn.addEventListener("click", () => {
     window.location.href = "https://www.google.com/";
+  });
+
+  // "Full disclaimer" and other legal links should navigate without leaving the gate visible
+  popup.querySelectorAll('a[href*="professional-services-disclaimer"], a[href*="privacy-policy"], a[href*="terms-of-service"]').forEach((link) => {
+    link.addEventListener("click", () => {
+      popup.classList.add("is-dismissed");
+      document.body.classList.remove("disclaimer-gate-open");
+      document.removeEventListener("keydown", onKeyDown);
+    });
   });
 })();
 
