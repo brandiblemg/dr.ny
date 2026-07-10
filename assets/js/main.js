@@ -221,8 +221,6 @@ if (serviceFinder) {
   const resultTitle = document.getElementById("sfr-title");
   const resultBody = document.getElementById("sfr-body");
   const viewDetailsBtn = document.getElementById("sfr-view-details");
-  const toolkitsWrap = document.getElementById("sfr-toolkits");
-  const toolkitGroups = toolkitsWrap ? toolkitsWrap.querySelectorAll(".sfr-toolkit-group") : [];
 
   const serviceCopy = {
     patient: {
@@ -247,30 +245,13 @@ if (serviceFinder) {
   function hideStep3AndResult() {
     if (step3) step3.classList.add("hidden");
     if (result) result.classList.add("hidden");
-    if (toolkitsWrap) toolkitsWrap.classList.add("hidden");
-    toolkitGroups.forEach((g) => g.classList.add("hidden"));
     narrowGroups.forEach((g) => g.classList.add("hidden"));
     goalButtons.forEach((b) => b.setAttribute("data-picked", "false"));
     const homeNext = document.getElementById("home-journey-next");
     if (homeNext) homeNext.classList.add("hidden");
   }
 
-  function showToolkitsForKey(toolkitKey) {
-    if (!toolkitsWrap || !toolkitKey) {
-      if (toolkitsWrap) toolkitsWrap.classList.add("hidden");
-      return;
-    }
-    let matched = false;
-    toolkitGroups.forEach((group) => {
-      const key = group.getAttribute("data-toolkit-key");
-      const show = key === toolkitKey;
-      group.classList.toggle("hidden", !show);
-      if (show) matched = true;
-    });
-    toolkitsWrap.classList.toggle("hidden", !matched);
-  }
-
-  function showResult(serviceKey, refineLine, toolkitKey) {
+  function showResult(serviceKey, refineLine) {
     if (!serviceKey || !serviceCopy[serviceKey]) return;
 
     const copy = serviceCopy[serviceKey];
@@ -281,8 +262,6 @@ if (serviceFinder) {
       resultBody.textContent = bodyText;
       result.classList.remove("hidden");
     }
-
-    showToolkitsForKey(toolkitKey);
 
     if (viewDetailsBtn) {
       viewDetailsBtn.onclick = () => {
@@ -371,8 +350,7 @@ if (serviceFinder) {
       const serviceKey = btn.getAttribute("data-service");
       targetCardId = btn.getAttribute("data-target-card");
       const refineLine = btn.getAttribute("data-refine") || "";
-      const toolkitKey = btn.getAttribute("data-toolkit-key") || "";
-      showResult(serviceKey, refineLine, toolkitKey);
+      showResult(serviceKey, refineLine);
       if (result) result.scrollIntoView({ behavior: "smooth", block: "nearest" });
     });
   });
@@ -389,41 +367,18 @@ if (serviceFinder) {
   });
 }
 
-// Standalone “Begin Today!” on service pages (goal → narrow → anchor cards + toolkits)
+// Standalone “Begin Today!” on service pages (goal → narrow → anchor cards)
 document.querySelectorAll(".service-journey-finder").forEach((root) => {
   const step2 = root.querySelector(".spf-step2");
-  const toolkitsRoot = root.querySelector(".spf-toolkits");
   if (!step2) return;
 
   const panels = step2.querySelectorAll(".spf-narrow-panel");
-  const toolkitGroups = toolkitsRoot ? toolkitsRoot.querySelectorAll(".spf-toolkit-group") : [];
-
-  function hideServicePageToolkits() {
-    if (toolkitsRoot) toolkitsRoot.classList.add("hidden");
-    toolkitGroups.forEach((g) => g.classList.add("hidden"));
-  }
-
-  function showServicePageToolkits(toolkitKey) {
-    if (!toolkitsRoot || !toolkitKey) {
-      hideServicePageToolkits();
-      return;
-    }
-    let matched = false;
-    toolkitGroups.forEach((group) => {
-      const key = group.getAttribute("data-toolkit-key");
-      const show = key === toolkitKey;
-      group.classList.toggle("hidden", !show);
-      if (show) matched = true;
-    });
-    toolkitsRoot.classList.toggle("hidden", !matched);
-  }
 
   root.querySelectorAll(".spf-goal-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       const key = btn.getAttribute("data-open-panel");
       root.querySelectorAll(".spf-goal-btn").forEach((b) => b.setAttribute("data-picked", "false"));
       btn.setAttribute("data-picked", "true");
-      hideServicePageToolkits();
       step2.classList.remove("hidden");
       panels.forEach((p) => {
         p.classList.toggle("hidden", p.getAttribute("data-panel") !== key);
@@ -436,16 +391,13 @@ document.querySelectorAll(".service-journey-finder").forEach((root) => {
     });
   });
 
-  root.querySelectorAll(".spf-narrow-panel a[data-toolkit-key]").forEach((link) => {
+  root.querySelectorAll(".spf-narrow-panel a").forEach((link) => {
     link.addEventListener("click", () => {
-      const toolkitKey = link.getAttribute("data-toolkit-key") || "";
-      // Persist selection styling for “Narrow your focus...” pills
       const panel = link.closest(".spf-narrow-panel");
       if (panel) {
-        panel.querySelectorAll("a[data-toolkit-key]").forEach((a) => a.setAttribute("data-picked", "false"));
+        panel.querySelectorAll("a").forEach((a) => a.setAttribute("data-picked", "false"));
       }
       link.setAttribute("data-picked", "true");
-      showServicePageToolkits(toolkitKey);
     });
   });
 });
@@ -708,28 +660,6 @@ initClickToPlayVideo("journey-overview-section", "journey-overview-video");
     banner.classList.remove("hidden");
     banner.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
-})();
-
-// Resources page — educational notice (full-width, closable)
-(function initResourcesEducationalNotice() {
-  const notice = document.getElementById("resources-educational-notice");
-  const closeBtn = document.getElementById("resources-educational-notice-close");
-  if (!notice || !closeBtn) return;
-
-  const storageKey = "drny-resources-notice-dismissed";
-  localStorage.removeItem(storageKey);
-
-  const dismiss = () => {
-    notice.classList.add("is-dismissed");
-    sessionStorage.setItem(storageKey, "1");
-  };
-
-  if (sessionStorage.getItem(storageKey) === "1") {
-    notice.classList.add("is-dismissed");
-    return;
-  }
-
-  closeBtn.addEventListener("click", dismiss);
 })();
 
 // Professional-services gate (centered modal, sitewide — must acknowledge to access site)
