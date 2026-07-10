@@ -475,43 +475,37 @@ if (aceDiagram) {
   const aceCopy = {
     advocacy: {
       title: "Advocacy",
+      letter: "A",
       body:
         "Advocacy is how we carry your story into every room where decisions are made—so you never feel like you’re repeating yourself or fighting alone."
     },
     compassion: {
       title: "Compassion",
+      letter: "C",
       body:
         "Compassion is the disciplined practice of feeling with patients and families, and then redesigning conversations and systems to honor that reality."
     },
     education: {
       title: "Education",
+      letter: "E",
       body:
         "Education turns fear and jargon into clarity and action. When the “why” is clear, patients, teams, and partners can finally participate—not just comply."
     }
   };
 
   function activateSegment(key) {
-    // Update segment visuals
     segments.forEach((seg) => {
       const segKey = seg.getAttribute("data-segment");
-      if (segKey === key) {
-        seg.classList.add("ace-segment-active");
-      } else {
-        seg.classList.remove("ace-segment-active");
-      }
+      const isActive = segKey === key;
+      seg.classList.toggle("ace-segment-active", isActive);
+      seg.setAttribute("aria-pressed", isActive ? "true" : "false");
     });
 
-    // Update detail visibility
     details.forEach((detail) => {
       const dKey = detail.getAttribute("data-segment");
-      if (dKey === key) {
-        detail.classList.remove("hidden");
-      } else {
-        detail.classList.add("hidden");
-      }
+      detail.classList.toggle("hidden", dKey !== key);
     });
 
-    // Update copy
     const copy = aceCopy[key];
     if (copy && titleEl && bodyEl) {
       titleEl.textContent = copy.title;
@@ -521,7 +515,7 @@ if (aceDiagram) {
 
   segments.forEach((seg) => {
     const key = seg.getAttribute("data-segment");
-    if (!key) return;
+    if (!key || !aceCopy[key]) return;
     seg.addEventListener("click", () => activateSegment(key));
     seg.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
@@ -531,7 +525,10 @@ if (aceDiagram) {
     });
     seg.setAttribute("tabindex", "0");
     seg.setAttribute("role", "button");
-    seg.setAttribute("aria-label", key.charAt(0).toUpperCase() + key.slice(1));
+    seg.setAttribute(
+      "aria-label",
+      `Explore ${aceCopy[key].title} (${aceCopy[key].letter})`
+    );
   });
 
   // Set initial active segment based on URL hash (e.g., #advocacy)

@@ -118,7 +118,7 @@
          <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
          </svg></a>
       </div>
-      </div><!-- Right: Video Placeholder -->
+      </div><!-- Right: Video -->
       <div id="video-section" class="relative animate-scale-in animate-delay-3">
        <div class="relative aspect-video rounded-2xl overflow-hidden shadow-2xl video-player-wrap">
         <video id="hero-video" class="w-full h-full object-cover bg-deep-teal" src="./assets/DrNaderYoussef.mp4" poster="./assets/DrNaderYoussef-poster-46s.webp" playsinline preload="metadata" controls controlslist="nodownload noplaybackrate"></video><!-- Decorative grid pattern -->
@@ -135,12 +135,6 @@
           </svg></button>
         </div>
        </div>
-       <div class="mt-4 md:mt-5 bg-base rounded-xl border border-divider shadow-sm px-4 py-3 md:px-5 md:py-4">
-        <div class="text-center max-w-2xl mx-auto">
-         <p class="text-xs uppercase tracking-widest text-text-secondary mb-1 font-medium">Triple E Concept</p>
-         <h2 class="font-display text-xl md:text-2xl font-semibold text-text-primary leading-snug">Empathetic Engagement Through Education.</h2>
-        </div>
-       </div>
       </div>
      </div>
     </div>
@@ -152,32 +146,7 @@
       <h2 class="font-display text-3xl lg:text-4xl font-semibold text-text-primary mb-4">Choose Your Journey</h2>
       <p class="home-journey-lead text-text-secondary">ACE shows up differently depending on whether you are a patient, a pharma partner, or a healthcare provider.</p>
      </div><!-- Journey cards -->
-     <div class="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch"><!-- Card 1: Patient -->
-      <a href="#service-finder" id="service-patient" data-role="patient" class="service-start journey-card group flex flex-col h-full bg-white rounded-2xl p-8 shadow-sm border border-divider cursor-pointer relative overflow-hidden scroll-mt-28"><!-- Accent bar -->
-       <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-deep-teal to-deep-teal/60"></div>
-       <div class="journey-card-intro relative z-10 flex flex-col flex-1"><!-- Icon + title row -->
-       <div class="flex items-center gap-4 mb-6">
-        <div class="card-icon w-16 h-16 shrink-0 bg-deep-teal/5 rounded-2xl flex items-center justify-center transition-transform">
-         <svg class="w-8 h-8 text-deep-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-         </svg>
-        </div>
-        <h3 id="patient-title" class="font-display text-xl font-semibold text-text-primary mb-0 inline-flex items-center gap-2">Are you a patient?
-         <svg class="card-arrow w-4 h-4 shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-         </svg>
-        </h3>
-       </div><!-- Content -->
-       <p class="text-text-secondary mb-0 leading-relaxed">If you've felt unheard, dismissed, or lost in the system—let's change that. Reclaim your voice in your healthcare journey.</p>
-       </div>
-       <div class="journey-card-ace relative z-10 mt-6">
-       <h4 class="font-display text-lg font-semibold text-text-primary mb-3">What ACE looks like when you’re a patient</h4>
-       <ul class="space-y-2 text-sm text-text-secondary mb-0">
-        <li>• We help you clarify your story and fears before the visit.</li>
-        <li>• We co-create three essential questions for your physician.</li>
-        <li>• We translate the plan afterward so it makes sense in your life.</li>
-       </ul>
-       </div><!-- Hover gradient -->
-       <div class="absolute inset-0 bg-gradient-to-br from-deep-teal/0 via-deep-teal/0 to-deep-teal/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
-      </a><!-- Card 2: Pharma -->
+     <div class="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch"><!-- Card 1: Pharma -->
       <a href="#service-finder" id="service-pharma" data-role="pharma" class="service-start journey-card group flex flex-col h-full bg-white rounded-2xl p-8 shadow-sm border border-divider cursor-pointer relative overflow-hidden scroll-mt-28"><!-- Accent bar -->
        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-deep-teal to-deep-teal/60"></div>
        <div class="journey-card-intro relative z-10 flex flex-col flex-1"><!-- Icon + title row -->
@@ -202,7 +171,34 @@
        </ul>
        </div><!-- Hover gradient -->
        <div class="absolute inset-0 bg-gradient-to-br from-deep-teal/0 via-deep-teal/0 to-deep-teal/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
-      </a><!-- Card 3: Provider -->
+      </a>
+      <!-- Card 2: Patient -->
+      <a href="#service-finder" id="service-patient" data-role="patient" class="service-start journey-card group flex flex-col h-full bg-white rounded-2xl p-8 shadow-sm border border-divider cursor-pointer relative overflow-hidden scroll-mt-28"><!-- Accent bar -->
+       <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-deep-teal to-deep-teal/60"></div>
+       <div class="journey-card-intro relative z-10 flex flex-col flex-1"><!-- Icon + title row -->
+       <div class="flex items-center gap-4 mb-6">
+        <div class="card-icon w-16 h-16 shrink-0 bg-deep-teal/5 rounded-2xl flex items-center justify-center transition-transform">
+         <svg class="w-8 h-8 text-deep-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+         </svg>
+        </div>
+        <h3 id="patient-title" class="font-display text-xl font-semibold text-text-primary mb-0 inline-flex items-center gap-2">Are you a patient?
+         <svg class="card-arrow w-4 h-4 shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+         </svg>
+        </h3>
+       </div><!-- Content -->
+       <p class="text-text-secondary mb-0 leading-relaxed">If you've felt unheard, dismissed, or lost in the system—let's change that. Reclaim your voice in your healthcare journey.</p>
+       </div>
+       <div class="journey-card-ace relative z-10 mt-6">
+       <h4 class="font-display text-lg font-semibold text-text-primary mb-3">What ACE looks like when you’re a patient</h4>
+       <ul class="space-y-2 text-sm text-text-secondary mb-0">
+        <li>• We help you clarify your story and fears before the visit.</li>
+        <li>• We co-create three essential questions for your physician.</li>
+        <li>• We translate the plan afterward so it makes sense in your life.</li>
+       </ul>
+       </div><!-- Hover gradient -->
+       <div class="absolute inset-0 bg-gradient-to-br from-deep-teal/0 via-deep-teal/0 to-deep-teal/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+      </a>
+      <!-- Card 3: Provider -->
       <a href="#service-finder" id="service-provider" data-role="provider" class="service-start journey-card group flex flex-col h-full bg-white rounded-2xl p-8 shadow-sm border border-divider cursor-pointer relative overflow-hidden scroll-mt-28"><!-- Accent bar -->
        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-deep-teal to-warm-sand"></div>
        <div class="journey-card-intro relative z-10 flex flex-col flex-1"><!-- Icon + title row -->
@@ -238,14 +234,14 @@
         <div class="mb-6">
          <p class="text-sm font-medium text-text-muted uppercase tracking-widest mb-3">Step 1 · Are you a...</p>
          <div class="flex flex-wrap gap-3" aria-label="Select your role">
-          <button type="button" class="sf-role-btn inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors data-[active=true]:bg-deep-teal data-[active=true]:text-white data-[active=true]:border-deep-teal" data-role="patient">
-           <span class="w-2 h-2 rounded-full bg-accent-sand"></span> Are you a patient?
-          </button>
           <button type="button" class="sf-role-btn inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors data-[active=true]:bg-deep-teal data-[active=true]:text-white data-[active=true]:border-deep-teal" data-role="pharma">
-           <span class="w-2 h-2 rounded-full bg-warm-sand"></span> Are you a pharma client?
+           <span class="w-2 h-2 rounded-full bg-warm-sand"></span> Pharma Client
+          </button>
+          <button type="button" class="sf-role-btn inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors data-[active=true]:bg-deep-teal data-[active=true]:text-white data-[active=true]:border-deep-teal" data-role="patient">
+           <span class="w-2 h-2 rounded-full bg-accent-sand"></span> Patient
           </button>
           <button type="button" class="sf-role-btn inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-base text-sm font-medium text-text-secondary hover:border-deep-teal hover:text-deep-teal transition-colors data-[active=true]:bg-deep-teal data-[active=true]:text-white data-[active=true]:border-deep-teal" data-role="provider">
-           <span class="w-2 h-2 rounded-full bg-deep-teal"></span> Are you a healthcare provider?
+           <span class="w-2 h-2 rounded-full bg-deep-teal"></span> Healthcare Provider
           </button>
          </div>
         </div>
@@ -295,6 +291,12 @@
            <div class="w-2 h-2 bg-warm-sand rounded-full animate-pulse"></div>
            <span class="text-white text-xs font-medium">Dr. Nader Youssef in Action</span>
           </div>
+         </div>
+        </div>
+        <div class="mt-4 md:mt-5 bg-base rounded-xl border border-divider shadow-sm px-4 py-3 md:px-5 md:py-4">
+         <div class="text-center max-w-2xl mx-auto">
+          <p class="text-xs uppercase tracking-widest text-text-secondary mb-1 font-medium">Triple E Concept</p>
+          <h2 class="font-display text-xl md:text-2xl font-semibold text-text-primary leading-snug">Empathetic Engagement Through Education.</h2>
          </div>
         </div>
        </div>
@@ -447,13 +449,12 @@
         <li><a href="ace-framework.html" class="text-white/80 hover:text-white transition-colors">How We Work</a></li>
         <li><a href="ace-framework.html" class="text-white/80 hover:text-white transition-colors">ACE Framework</a></li>
        </ul>
-      </div><!-- Team & Schedule -->
+      </div><!-- About & Schedule -->
       <div class="md:pl-8">
-       <h4 class="font-semibold text-sm uppercase tracking-widest mb-4 text-white/90">Team</h4>
+       <h4 class="font-semibold text-sm uppercase tracking-widest mb-4 text-white/90">About</h4>
        <ul class="space-y-2 text-sm">
-        <li><a href="about.html" class="text-white/80 hover:text-white transition-colors">Team</a></li>
-        <li><a href="about.html#speaking" class="text-white/80 hover:text-white transition-colors">Speaking</a></li>
-        <li><a href="index.html#media-in-action" class="text-white/80 hover:text-white transition-colors">Media</a></li>
+        <li><a href="about.html" class="text-white/80 hover:text-white transition-colors">Meet Dr Youssef</a></li>
+        <li><a href="about.html#speaking" class="text-white/80 hover:text-white transition-colors">Speaking &amp; Media</a></li>
         <li><a href="schedule.html" class="text-white/80 hover:text-white transition-colors">Schedule a Conversation</a></li>
        </ul>
       </div><!-- Contact -->
