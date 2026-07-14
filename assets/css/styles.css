@@ -712,7 +712,10 @@ body {
 .logo-marquee__track {
   display: flex;
   width: max-content;
-  animation: logo-marquee-scroll 70s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+  animation: logo-marquee-scroll 52.5s linear infinite;
 }
 
 .logo-marquee__group {
@@ -728,14 +731,8 @@ body {
   width: auto;
   max-width: 11rem;
   object-fit: contain;
-  opacity: 0.85;
-  filter: grayscale(0.15);
-  transition: opacity 0.25s ease, filter 0.25s ease;
-}
-
-.logo-marquee:hover .logo-marquee__logo {
-  opacity: 1;
-  filter: grayscale(0);
+  opacity: 0.9;
+  flex-shrink: 0;
 }
 
 .logo-marquee:hover .logo-marquee__track {
@@ -744,10 +741,10 @@ body {
 
 @keyframes logo-marquee-scroll {
   from {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
