@@ -5,7 +5,7 @@
 window.SITE_CONFIG = {
   siteUrl: "https://consultdrnader.com",
   siteName: "Dr. Nader Youssef",
-  ogImage: "https://consultdrnader.com/assets/Logo/1.png",
+  ogImage: "https://consultdrnader.com/assets/Logo/apple-touch-icon.png",
 
   // B-22: Google Analytics 4 — paste Measurement ID (e.g. G-XXXXXXXX) when ready; leave "" to disable
   gaMeasurementId: "",

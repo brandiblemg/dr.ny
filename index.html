@@ -3,8 +3,8 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="assets/Logo/1.png">
-  <link rel="apple-touch-icon" href="assets/Logo/1.png">
+  <link rel="icon" type="image/png" href="assets/Logo/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/Logo/apple-touch-icon.png">
   <link rel="canonical" href="https://consultdrnader.com/">
   <link rel="preload" as="image" href="./assets/DrNaderYoussef-poster-46s.webp" type="image/webp" fetchpriority="high">
   <meta name="description" content="Patient advocacy, pharmaceutical consulting, and leadership development through advocacy, compassion, and education (ACE).">
@@ -12,12 +12,12 @@
   <meta property="og:site_name" content="Dr. Nader Youssef">
   <meta property="og:title" content="Dr. Youssef | Listening is the Best Medicine">
   <meta property="og:description" content="Patient advocacy, pharmaceutical consulting, and leadership development through advocacy, compassion, and education (ACE).">
-  <meta property="og:image" content="https://consultdrnader.com/assets/Logo/1.png">
+  <meta property="og:image" content="https://consultdrnader.com/assets/Logo/apple-touch-icon.png">
   <meta property="og:url" content="https://consultdrnader.com/">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Dr. Youssef | Listening is the Best Medicine">
   <meta name="twitter:description" content="Patient advocacy, pharmaceutical consulting, and leadership development through advocacy, compassion, and education (ACE).">
-  <meta name="twitter:image" content="https://consultdrnader.com/assets/Logo/1.png">
+  <meta name="twitter:image" content="https://consultdrnader.com/assets/Logo/apple-touch-icon.png">
   <title>Dr. Nader Youssef | Humanizing Modern Healthcare</title>
   <script type="application/ld+json">
   {
@@ -32,46 +32,19 @@
     "knowsAbout": ["Patient Advocacy", "Pharmaceutical Consulting", "Healthcare Education", "BioPharma", "Clinical Practice"]
   }
   </script>
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="./assets/css/tailwind.css">
   <link rel="stylesheet" href="./assets/css/styles.css">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'base': '#F7F6F2',
-            'base-alt': '#F2F0EB',
-            'deep-teal': '#1F3E5A', /* now subtle blue */
-            'teal-hover': '#163149', /* darker blue hover */
-            'accent-sand': '#E5E2DA',
-            'sand-light': '#F0ECE4',
-            'accent-sage': '#7E9C8C',
-            'sage-light': '#9EB4A5',
-            'warm-sand': '#FFFFFF',
-            'text-primary': '#2A2A2A',
-            'text-secondary': '#515151',
-            'text-muted': '#7A7A7A',
-            'divider': '#E5E0D8'
-          },
-          fontFamily: {
-            'display': ['Playfair Display', 'Georgia', 'serif'],
-            'body': ['Inter', 'system-ui', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
  </head>
- <body class="h-full bg-base font-body text-text-primary overflow-auto smooth-scroll">
+<body class="h-full bg-base font-body text-text-primary overflow-auto smooth-scroll">
   <div class="w-full min-h-full"><!-- ============================================ --> <!-- SECTION 1: STICKY HEADER / NAV --> <!-- ============================================ -->
    <header id="main-header" class="navbar">
       <div class="navbar__container">
         <a href="index.html" class="navbar__brand">
-          <span class="navbar__logo-wrap"><picture><source srcset="assets/Logo/1.webp" type="image/webp"><img src="assets/Logo/1.png" alt="Dr. Youssef logo" width="60" height="60" class="navbar__logo" fetchpriority="low" decoding="async" /></picture></span>
+          <span class="navbar__logo-wrap"><picture><source srcset="assets/Logo/1-nav.webp" type="image/webp"><img src="assets/Logo/1-nav.png" alt="Dr. Youssef logo" width="60" height="60" class="navbar__logo" fetchpriority="low" decoding="async" /></picture></span>
         </a>
         <button type="button" class="navbar__toggle" id="mobile-menu-btn" aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false">
           <span class="navbar__toggle-bar" aria-hidden="true"></span>
@@ -121,7 +94,7 @@
       </div><!-- Right: Video -->
       <div id="video-section" class="relative animate-scale-in animate-delay-3">
        <div class="relative aspect-video rounded-2xl overflow-hidden shadow-2xl video-player-wrap">
-        <video id="hero-video" class="w-full h-full object-cover bg-deep-teal" src="./assets/DrNaderYoussef.mp4" poster="./assets/DrNaderYoussef-poster-46s.webp" playsinline preload="metadata" controls controlslist="nodownload noplaybackrate"></video><!-- Decorative grid pattern -->
+        <video id="hero-video" class="w-full h-full object-cover bg-deep-teal" src="./assets/DrNaderYoussef.mp4" poster="./assets/DrNaderYoussef-poster-46s.webp" playsinline preload="none" fetchpriority="high" controls controlslist="nodownload noplaybackrate"></video><!-- Decorative grid pattern -->
         <div class="absolute inset-0 opacity-10 pointer-events-none">
          <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg"><defs>
            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
@@ -280,7 +253,7 @@
        </div>
        <div id="journey-overview-section" class="relative">
         <div class="relative aspect-video bg-deep-teal rounded-2xl overflow-hidden shadow-2xl video-player-wrap">
-         <video id="journey-overview-video" class="w-full h-full object-cover bg-black" src="./assets/braingut.mp4" poster="./assets/braingut-poster-4s.webp" playsinline preload="metadata" controls controlslist="nodownload noplaybackrate" aria-label="Dr. Nader Youssef in Action"></video>
+         <video id="journey-overview-video" class="w-full h-full object-cover bg-black" src="./assets/braingut.mp4" poster="./assets/braingut-poster-4s.webp" playsinline preload="none" controls controlslist="nodownload noplaybackrate" aria-label="Dr. Nader Youssef in Action"></video>
          <div class="absolute inset-0 flex items-center justify-center pointer-events-none journey-overview-play-wrap">
           <button type="button" class="video-play-btn w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-xl pointer-events-auto" aria-label="Play Dr. Nader Youssef in Action video">
            <svg class="w-6 h-6 text-deep-teal ml-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" /></svg>
@@ -439,7 +412,7 @@
      <div class="grid md:grid-cols-4 gap-12 mb-12">
       <!-- Brand Column -->
       <div>
-       <picture><source srcset="assets/Logo/1.webp" type="image/webp"><img src="assets/Logo/1.png" alt="Unique Pharma Consulting. Navigating Strategy. Centered on Patients." width="840" height="144" class="h-[8.25rem] sm:h-[9rem] w-auto max-w-[min(100%,840px)] object-contain object-left mb-4" loading="lazy" decoding="async" /></picture>
+       <picture><source srcset="assets/Logo/1.webp" type="image/webp"><img src="assets/Logo/1.png" alt="Unique Pharma Consulting. Navigating Strategy. Centered on Patients." width="840" height="840" class="h-[8.25rem] sm:h-[9rem] w-auto max-w-[min(100%,840px)] object-contain object-left mb-4" loading="lazy" decoding="async" /></picture>
        <p class="text-white/80 text-sm leading-relaxed">BioPharma consultant, patient advocate, and champion of education through empathetic engagement.</p>
       </div><!-- Quick Links -->
       <div class="md:pl-8">
