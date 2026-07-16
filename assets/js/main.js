@@ -234,7 +234,7 @@ if (serviceFinder) {
         "Study design with patient-centered outcomes. We work with patient groups and KOLs to shape meaningful protocols—e.g. daily function measures (like a child’s ability to tolerate feeds), compassionate study design, and educating pharma partners on real patient priorities. Example: Pediatric Intestinal Failure Society collaboration. Another example: working with Rare Genetic Neurodegenerative groups to identify meaningful daily living milestones."
     },
     provider: {
-      title: "Healthcare Provider Training",
+      title: "Clinical Communication Development",
       body:
         "For nurses, PAs, medical students, residents, and young physicians. We address diminished communication from over-reliance on AI and algorithms by teaching empathetic engagement and patient-centered communication—e.g. training providers to explain the \"why\" behind recommendations, not just labels like \"heart health.\""
     }
@@ -758,11 +758,11 @@ initClickToPlayVideo("journey-overview-section", "journey-overview-video");
       <p class="text-xs text-text-muted mb-4">Last updated: May 2026</p>
       <section>
         <h3>Nature of services</h3>
-        <p>Dr. Nader N. Youssef provides professional services that may include patient advocacy, health education, communication support, pharmaceutical and regulatory consulting, and leadership coaching for individuals and organizations.</p>
+        <p>Dr. Nader N. Youssef provides professional services that may include patient advocacy, health education, communication support, pharmaceutical and regulatory consulting, and leadership development for individuals and organizations.</p>
       </section>
       <section>
         <h3>Services provided</h3>
-        <p>Depending on the engagement, services may include advocacy, education, communication support, pharmaceutical/regulatory consulting, and leadership coaching designed to help clients prepare for conversations, strengthen engagement, and support organizational strategy.</p>
+        <p>Depending on the engagement, services may include advocacy, education, communication support, pharmaceutical/regulatory consulting, and leadership development designed to help clients prepare for conversations, strengthen engagement, and support organizational strategy.</p>
       </section>
       <section>
         <h3>What is not provided</h3>
